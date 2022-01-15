@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"g-dab.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+  <meta name="description" content="[TOC] Minecraft地图生成原理伪地图方块生成 种子 话说Minecraft的地图是如生成的呢，总不可能一次生成那么多方快，更何况这可是一个无限大的世界！！！ 显然只有通过根据玩家所在的位置动态地加载地图。走到哪里，生成哪里。  我们新建世界的时候会需要一个种子（seed）一个种子确定一个世界。 Minecraft的地图生成器是根据输入的种子，在对应生成每个坐标的的方块种类，所以只要输入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Some words from the SORTING HAT">
-<meta property="og:url" content="https://g-dab.gitee.io/2021/11/29/Some-words-from-the-SORTING-HAT/index.html">
+<meta property="og:title" content="internal-implementation">
+<meta property="og:url" content="https://g-dab.gitee.io/2021/12/05/%E9%AD%94%E8%8D%AF%E8%AF%BE/mc-record/mc-outline/mc-internal-implementation/index.html">
 <meta property="og:site_name" content="ggdab~~">
-<meta property="og:description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+<meta property="og:description" content="[TOC] Minecraft地图生成原理伪地图方块生成 种子 话说Minecraft的地图是如生成的呢，总不可能一次生成那么多方快，更何况这可是一个无限大的世界！！！ 显然只有通过根据玩家所在的位置动态地加载地图。走到哪里，生成哪里。  我们新建世界的时候会需要一个种子（seed）一个种子确定一个世界。 Minecraft的地图生成器是根据输入的种子，在对应生成每个坐标的的方块种类，所以只要输入">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-29T05:15:29.000Z">
-<meta property="article:modified_time" content="2022-01-13T17:31:33.352Z">
+<meta property="og:image" content="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5e/Sky_temperature.png/revision/latest/scale-to-width-down/180?cb=20200527061032">
+<meta property="article:published_time" content="2021-12-05T05:16:23.000Z">
+<meta property="article:modified_time" content="2021-12-19T06:20:36.231Z">
 <meta property="article:author" content="G.dab">
-<meta property="article:tag" content="Sorting">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5e/Sky_temperature.png/revision/latest/scale-to-width-down/180?cb=20200527061032">
 
-<link rel="canonical" href="https://g-dab.gitee.io/2021/11/29/Some-words-from-the-SORTING-HAT/">
+<link rel="canonical" href="https://g-dab.gitee.io/2021/12/05/%E9%AD%94%E8%8D%AF%E8%AF%BE/mc-record/mc-outline/mc-internal-implementation/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>Some words from the SORTING HAT | ggdab~~</title>
+  <title>internal-implementation | ggdab~~</title>
   
 
 
@@ -166,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2021/11/29/Some-words-from-the-SORTING-HAT/">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2021/12/05/%E9%AD%94%E8%8D%AF%E8%AF%BE/mc-record/mc-outline/mc-internal-implementation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -179,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Some words from the SORTING HAT
+          internal-implementation
         </h1>
 
         <div class="post-meta">
@@ -189,15 +190,28 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-11-29 13:15:29" itemprop="dateCreated datePublished" datetime="2021-11-29T13:15:29+08:00">2021-11-29</time>
+              <time title="Created: 2021-12-05 13:16:23" itemprop="dateCreated datePublished" datetime="2021-12-05T13:16:23+08:00">2021-12-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 01:31:33" itemprop="dateModified" datetime="2022-01-14T01:31:33+08:00">2022-01-14</time>
+                <time title="Modified: 2021-12-19 14:20:36" itemprop="dateModified" datetime="2021-12-19T14:20:36+08:00">2021-12-19</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Minecraft/" itemprop="url" rel="index"><span itemprop="name">Minecraft</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Minecraft/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -217,7 +231,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>[TOC]</p>
+<h1 id="Minecraft地图生成原理"><a href="#Minecraft地图生成原理" class="headerlink" title="Minecraft地图生成原理"></a>Minecraft地图生成原理</h1><h3 id="伪地图方块生成-种子"><a href="#伪地图方块生成-种子" class="headerlink" title="伪地图方块生成 种子"></a>伪地图方块生成 <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%A7%8D%E5%AD%90%EF%BC%88%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90%EF%BC%89">种子</a></h3><blockquote>
+<p>话说Minecraft的地图是如生成的呢，总不可能一次生成那么多方快，更何况这可是一个无限大的世界！！！</p>
+<p>显然只有通过根据玩家所在的位置动态地加载地图。走到哪里，生成哪里。</p>
+</blockquote>
+<p>我们新建世界的时候会需要一个种子（seed）一个种子确定一个世界。</p>
+<p>Minecraft的地图生成器是根据输入的种子，在对应生成每个坐标的的方块种类，所以只要输入的种子一样，生成的地图每个细节都完全一样</p>
+<h1 id="生物群系-生物群系-Biomes"><a href="#生物群系-生物群系-Biomes" class="headerlink" title="生物群系 生物群系  Biomes"></a>生物群系 <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Biome#Temperature">生物群系 </a> Biomes</h1><h2 id="Generation"><a href="#Generation" class="headerlink" title="Generation"></a>Generation</h2><p>Minecraft biomes are generated in layer stacks. These layers generate specific  aspects of Minecraft biomes, such as scale, rivers, varieties and biome  categories.</p>
+<p>​            </p>
+<p>minecraft中的生物群系指代在气候学和地理学上被定义为具有类似气候条件的地方，比如植物、动物和土壤生物组成的群落，也就是一个<strong>生态系统</strong></p>
+<p>基本配置</p>
+<h5 id="温度-Temperature"><a href="#温度-Temperature" class="headerlink" title="温度 Temperature"></a>温度 Temperature</h5><p>每个群系需要温度值来判断天气特征（水是否结冰，是否下雪，下雨，判断雪线）</p>
+<blockquote>
+<p>温度值 snow &lt;0.15 rain 0.15~1 dry &gt;1   （mc一个方块1*1*1）</p>
+<p>当然这都一句不同的服务器版本改变，比如香草服里设定savannas在怎样的温度下都不会下雨</p>
+<p>从海平面(Y=64)开始，海拔每增高1米，温度将会降低0.001666…(1 ⁄ 600)，海平面以下不改变</p>
+</blockquote>
+<blockquote>
+<p>生物群系的温度和降雨量值也会决定一些方块的颜色（grass, grass blocks, some leaves, vines, sugar cane）</p>
+</blockquote>
+<h5 id="Sky-and-fog"><a href="#Sky-and-fog" class="headerlink" title="Sky and fog"></a>Sky and fog</h5><p><a target="_blank" rel="noopener" href="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5e/Sky_temperature.png/revision/latest?cb=20200527061032"><img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5e/Sky_temperature.png/revision/latest/scale-to-width-down/180?cb=20200527061032" alt="img"></a></p>
+<p>Sky color from left to right: warm, temperate, cold, snowy.</p>
+<p>The sky colors are not directly determined by the temperature and  rainfall values but instead are determined by a color code. However, the sky color that is set for each biome is mostly based on the temperature values, which means that warmer biomes have brighter skies and colder  biomes have slightly purplish skies.</p>
+<h1 id="Village-and-Pillage"><a href="#Village-and-Pillage" class="headerlink" title="Village and Pillage"></a>Village and Pillage</h1><p><a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Java_Edition_guides/Village_%26_Pillage">https://minecraft.fandom.com/wiki/Java_Edition_guides/Village_%26_Pillage</a></p>
+
     </div>
 
     
@@ -225,19 +263,19 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Sorting/" rel="tag"># Sorting</a>
-          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/12/05/%E9%AD%94%E8%8D%AF%E8%AF%BE/mc-record/mc-outline/mc-server-build/" rel="next" title="Server-build">
-      Server-build <i class="fa fa-chevron-right"></i>
+    <a href="/2021/12/05/%E9%AD%94%E8%8D%AF%E8%AF%BE/mc-record/mc-outline/mc-myStrangeRecords/" rel="prev" title="StrangeRecords">
+      <i class="fa fa-chevron-left"></i> StrangeRecords
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/12/05/%E9%AD%94%E8%8D%AF%E8%AF%BE/mc-record/mc-outline/mc-commands/" rel="next" title="simple-commands">
+      simple-commands <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -297,6 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Minecraft%E5%9C%B0%E5%9B%BE%E7%94%9F%E6%88%90%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">Minecraft地图生成原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E5%9C%B0%E5%9B%BE%E6%96%B9%E5%9D%97%E7%94%9F%E6%88%90-%E7%A7%8D%E5%AD%90"><span class="nav-number">1.0.1.</span> <span class="nav-text">伪地图方块生成 种子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9F%E7%89%A9%E7%BE%A4%E7%B3%BB-%E7%94%9F%E7%89%A9%E7%BE%A4%E7%B3%BB-Biomes"><span class="nav-number">2.</span> <span class="nav-text">生物群系 生物群系  Biomes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generation"><span class="nav-number">2.1.</span> <span class="nav-text">Generation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%A9%E5%BA%A6-Temperature"><span class="nav-number">2.1.0.0.1.</span> <span class="nav-text">温度 Temperature</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sky-and-fog"><span class="nav-number">2.1.0.0.2.</span> <span class="nav-text">Sky and fog</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Village-and-Pillage"><span class="nav-number">3.</span> <span class="nav-text">Village and Pillage</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
