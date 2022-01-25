@@ -252,13 +252,13 @@
 </blockquote>
 <p>DISPLAY环境变量格式为   <code>host:NumA.NumB</code><br><strong>host</strong>： Xserver所在的主机主机名或者ip地址, 图形将显示在这一机器上<br>如果Host为空, 则表示Xserver运行于本机</p>
 <p>查看当前的DISPLAY环境变量</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token environment constant">$DISPLAY</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="bash">echo $DISPLAY
+</code></pre>
 <p>DISPLAY默认情况下应该为空</p>
 <p>之前我们在启动X Server时它的display number为-1，表示默认值，也就是0.0</p>
 <p>但在wsl里设置  <code>export DISPLAY=:0.0 </code> 后运行应用时出现报错</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Error: Can't <span class="token function">open</span> display: :0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="bash">Error: Can&#39;t open display: :0.0
+</code></pre>
 <blockquote>
 <p>wsl1的时候可以，而wsl2却不行，我推测是因为wsl2更加趋向于原生态的linux，所以把本地主机和wsl系统隔离开来了</p>
 </blockquote>
@@ -268,9 +268,9 @@
 <p>确实发现ip地址里多出了wsl的ip，说明是把这个虚拟系统和windows系统分开了，相当于它有了自己的虚拟网卡，这个才应该是x server相应的ip，而不是localhost</p>
 </blockquote>
 <p>此时再输入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">DISPLAY</span></span><span class="token operator">=</span>wsl的ip:0.0 
-<span class="token comment">#或是 export DISPLAY=wsl的ip:0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="bash">export DISPLAY=wsl的ip:0.0 
+#或是 export DISPLAY=wsl的ip:0
+</code></pre>
 <p>就可以运行linux程序啦！！！（可以尝试尝试xeyes,xclock,…）</p>
 <h3 id="Q-amp-W"><a href="#Q-amp-W" class="headerlink" title="Q&amp;W"></a>Q&amp;W</h3><ol>
 <li><p>想运行多个x client<br> 可以打开多个wsl终端，如果嫌占地方可以使用windows terminal</p>
@@ -278,8 +278,8 @@
 <li><p>如何保存配置<br> 在<del>/.bashrc(或是</del>/.zshrc)中添加</p>
 </li>
 </ol>
-  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">DISPLAY</span></span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">awk</span> <span class="token string">'/nameserver / &#123;print $2; exit&#125;'</span> /etc/resolv.conf <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null<span class="token variable">)</span></span>:0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="bash">export DISPLAY=$(awk &#39;/nameserver / &#123;print $2; exit&#125;&#39; /etc/resolv.conf 2&gt;/dev/null):0
+</code></pre>
 
     </div>
 
@@ -295,13 +295,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/01/16/mo-yao-ke/wsl/vscode-c-in-wsl/" rel="prev" title="vscode && C++ in WSL">
-      <i class="fa fa-chevron-left"></i> vscode && C++ in WSL
+    <a href="/2022/01/16/mo-yao-ke/wsl/readme/" rel="prev" title="README">
+      <i class="fa fa-chevron-left"></i> README
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/01/16/mo-yao-ke/wsl/readme/" rel="next" title="README">
-      README <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     

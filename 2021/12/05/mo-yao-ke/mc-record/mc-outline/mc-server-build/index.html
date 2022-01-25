@@ -278,23 +278,23 @@
 <h1 id="服务器的安装与配置"><a href="#服务器的安装与配置" class="headerlink" title="服务器的安装与配置"></a>服务器的安装与配置</h1><ol>
 <li>在官网安装了Java后（我使用的是Oracle Java）</li>
 </ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="bash">java -version
+</code></pre>
 <p>先检查一下Java是不是最新版本</p>
 <ol start="2">
 <li><p>下载开服<a target="_blank" rel="noopener" href="https://www.minecraft.net/zh-hans/download/server">核心 </a>(click here) (这是一个jar归档文件，以zip格式搭建，聚合了开服所需的所有的java类和数据)</p>
 <p>把核心放在要搭建服务器的文件夹里（用于存放所有的配置和世界文件），打开终端进入这个文件夹</p>
 </li>
 <li><p>开启服务器的命令是</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>jar minecraft_server<span class="token punctuation">.</span>jar <span class="token operator">--</span>nogui<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="java">java -jar minecraft_server.jar --nogui
+</code></pre>
 <p>–nogui ：就是no gui（图形界面）（但似乎加上它仍然会跳出图形界面）</p>
 </li>
 <li><p>此时服务器应该会立刻关闭，会有提示</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/ERROR<span class="token punctuation">]</span>: Failed to load properties from file: server.properties
-<span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/WARN<span class="token punctuation">]</span>: Failed to load eula.txt
-<span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/INFO<span class="token punctuation">]</span>: You need to agree to the EULA <span class="token keyword">in</span> order to run the server. Go to eula.txt <span class="token keyword">for</span> <span class="token function">more</span> info.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+<pre><code class="bash">[13:47:19] [main/ERROR]: Failed to load properties from file: server.properties
+[13:47:19] [main/WARN]: Failed to load eula.txt
+[13:47:19] [main/INFO]: You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
+</code></pre>
 <p>在文件夹里会多出eula.txt 打开并改成eula=true</p>
 <blockquote>
 <p>eula是终端用户许可协议（End User Licence Agreement），改为true也就是同意他的软件许可</p>
@@ -303,8 +303,8 @@
 <p>   此时再运行服务器就可以正常进行了</p>
 <p>   不过对<em>Minecraft</em> 服务器来说最重要的是运行内存，所以加上-Xmx选项可以指定运行内存限制， 一般-Xmx4G就很绰绰有余了</p>
 <p>通过</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar server.jar -help<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="bash">java -jar server.jar -help
+</code></pre>
 <p>可以查看更多的开服选项</p>
 </li>
 <li><p>那么现在如果想以自己的电脑作为服务端，让其他人能连到自己创建的世界里 </p>

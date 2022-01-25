@@ -323,30 +323,30 @@
 <h2 id="设置管理员operator"><a href="#设置管理员operator" class="headerlink" title="设置管理员operator"></a>设置管理员operator</h2><ol>
 <li>设置管理员权限</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">/</span>op <span class="token generics"><span class="token punctuation">&lt;</span>playername<span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="java">/op &lt;playername&gt;
+</code></pre>
 <p>解除管理员权限</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">/</span>deop <span class="token generics"><span class="token punctuation">&lt;</span>playername<span class="token punctuation">></span></span>		<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="java">/deop &lt;playername&gt;        
+</code></pre>
 <ol start="2">
 <li><p>编辑服务器里的ops.json文件</p>
 <p>之前的op命令输入后更改的就是ops.json文件，但注意修改了ops.json文件要重启服务器在能使之生效</p>
 <p>e.g.</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token punctuation">[</span>
-  <span class="token punctuation">&#123;</span>
-    <span class="token string">"uuid"</span><span class="token operator">:</span> <span class="token string">"82ad85f4-add6-4a11-81b2-2c7c634f3a4e"</span><span class="token punctuation">,</span>
-    <span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"Player1_name"</span><span class="token punctuation">,</span>
-    <span class="token string">"level"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
-    <span class="token string">"bypassesPlayerLimit"</span><span class="token operator">:</span> <span class="token boolean">false</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#123;</span>
-    <span class="token string">"uuid"</span><span class="token operator">:</span> <span class="token string">"9bb8bfdb-d35f-3727-b4f6-6bc51afd31fd"</span><span class="token punctuation">,</span>
-    <span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"Player2_name"</span><span class="token punctuation">,</span>
-    <span class="token string">"level"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
-    <span class="token string">"bypassesPlayerLimit"</span><span class="token operator">:</span> <span class="token boolean">false</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<pre><code class="java">[
+  &#123;
+    &quot;uuid&quot;: &quot;82ad85f4-add6-4a11-81b2-2c7c634f3a4e&quot;,
+    &quot;name&quot;: &quot;Player1_name&quot;,
+    &quot;level&quot;: 4,
+    &quot;bypassesPlayerLimit&quot;: false
+  &#125;,
+  &#123;
+    &quot;uuid&quot;: &quot;9bb8bfdb-d35f-3727-b4f6-6bc51afd31fd&quot;,
+    &quot;name&quot;: &quot;Player2_name&quot;,
+    &quot;level&quot;: 4,
+    &quot;bypassesPlayerLimit&quot;: false
+  &#125;
+]
+</code></pre>
 <p>Java版的用户权限等级分为0~4</p>
 <p>命令方块的权限等级仅为2</p>
 <p>服务器控制台的权限等级为4。</p>
@@ -819,23 +819,23 @@
 <h1 id="服务器的安装与配置"><a href="#服务器的安装与配置" class="headerlink" title="服务器的安装与配置"></a>服务器的安装与配置</h1><ol>
 <li>在官网安装了Java后（我使用的是Oracle Java）</li>
 </ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="bash">java -version
+</code></pre>
 <p>先检查一下Java是不是最新版本</p>
 <ol start="2">
 <li><p>下载开服<a target="_blank" rel="noopener" href="https://www.minecraft.net/zh-hans/download/server">核心 </a>(click here) (这是一个jar归档文件，以zip格式搭建，聚合了开服所需的所有的java类和数据)</p>
 <p>把核心放在要搭建服务器的文件夹里（用于存放所有的配置和世界文件），打开终端进入这个文件夹</p>
 </li>
 <li><p>开启服务器的命令是</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>jar minecraft_server<span class="token punctuation">.</span>jar <span class="token operator">--</span>nogui<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="java">java -jar minecraft_server.jar --nogui
+</code></pre>
 <p>–nogui ：就是no gui（图形界面）（但似乎加上它仍然会跳出图形界面）</p>
 </li>
 <li><p>此时服务器应该会立刻关闭，会有提示</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/ERROR<span class="token punctuation">]</span>: Failed to load properties from file: server.properties
-<span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/WARN<span class="token punctuation">]</span>: Failed to load eula.txt
-<span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/INFO<span class="token punctuation">]</span>: You need to agree to the EULA <span class="token keyword">in</span> order to run the server. Go to eula.txt <span class="token keyword">for</span> <span class="token function">more</span> info.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+<pre><code class="bash">[13:47:19] [main/ERROR]: Failed to load properties from file: server.properties
+[13:47:19] [main/WARN]: Failed to load eula.txt
+[13:47:19] [main/INFO]: You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
+</code></pre>
 <p>在文件夹里会多出eula.txt 打开并改成eula=true</p>
 <blockquote>
 <p>eula是终端用户许可协议（End User Licence Agreement），改为true也就是同意他的软件许可</p>
@@ -844,8 +844,8 @@
 <p>   此时再运行服务器就可以正常进行了</p>
 <p>   不过对<em>Minecraft</em> 服务器来说最重要的是运行内存，所以加上-Xmx选项可以指定运行内存限制， 一般-Xmx4G就很绰绰有余了</p>
 <p>通过</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar server.jar -help<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="bash">java -jar server.jar -help
+</code></pre>
 <p>可以查看更多的开服选项</p>
 </li>
 <li><p>那么现在如果想以自己的电脑作为服务端，让其他人能连到自己创建的世界里 </p>
