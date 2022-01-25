@@ -233,13 +233,14 @@
 <p>直接使用WSL+XLaunch 可以在原生的WSL上开发，而用Remote - WSL可以在Windows环境下用VScode操作WSL里的代码</p>
 </blockquote>
 <p>如果WSL里也装了VScode，那可以改环境变量, 或是卸载WSL里的VScode</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//code 命令的环境变量提醒</span><br><span class="line">To use Visual Studio Code with the Windows Subsystem <span class="keyword">for</span> Linux, please install Visual Studio Code <span class="keyword">in</span> Windows and uninstall the Linux version <span class="keyword">in</span> WSL. You can <span class="keyword">then</span> use the `code` <span class="built_in">command</span> <span class="keyword">in</span> a WSL terminal just as you would <span class="keyword">in</span> a normal <span class="built_in">command</span> prompt</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">//code 命令的环境变量提醒
+To use Visual Studio Code with the Windows Subsystem <span class="token keyword">for</span> Linux, please <span class="token function">install</span> Visual Studio Code <span class="token keyword">in</span> Windows and uninstall the Linux version <span class="token keyword">in</span> WSL. You can <span class="token keyword">then</span> use the <span class="token variable"><span class="token variable">`</span>code<span class="token variable">`</span></span> <span class="token builtin class-name">command</span> <span class="token keyword">in</span> a WSL terminal just as you would <span class="token keyword">in</span> a normal <span class="token builtin class-name">command</span> prompt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>打开WSL终端，然后进入想打开的目录, 执行</p>
 <blockquote>
 <p>问题：只能使用root执行，使用其他用户就显示没有code命令</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code .       //用VScode打开当前目录</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">code <span class="token builtin class-name">.</span>       //用VScode打开当前目录<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这时候会安装 VS Code Server</p>
 <p>Windows里的VScode应该就直接启动了</p>
@@ -250,10 +251,11 @@
 <p>如果安装了多个WSL，可以<code>CTRL+SHIFT+P</code> 调出命令面板，以访问更多 VS Code 远程选项，随后键入 <code>Remote-WSL</code> 来选择发行版</p>
 <h2 id="Compiler-和-debugger"><a href="#Compiler-和-debugger" class="headerlink" title="Compiler 和 debugger"></a>Compiler 和 debugger</h2><p>WSL 没有默认安装编译器，所以我们需要自己安装g++和gdb来compile和debug</p>
 <p>install the GNU compiler tools （含g++） and the GDB debugger</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential gdb</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> build-essential gdb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>检查一下安装是否成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">whereis g++</span><br><span class="line">whereis gdb</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">whereis</span> g++
+<span class="token function">whereis</span> gdb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><strong>Terminal</strong> &gt; <strong>Configure Default Build Task 选择g++为默认编译器，创建task.json</strong></p>
 <p><strong>F5 开启g++debug 创建launch.json</strong></p>
@@ -352,7 +354,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

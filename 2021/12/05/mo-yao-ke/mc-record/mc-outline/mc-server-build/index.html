@@ -278,7 +278,7 @@
 <h1 id="服务器的安装与配置"><a href="#服务器的安装与配置" class="headerlink" title="服务器的安装与配置"></a>服务器的安装与配置</h1><ol>
 <li>在官网安装了Java后（我使用的是Oracle Java）</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>先检查一下Java是不是最新版本</p>
 <ol start="2">
@@ -286,12 +286,14 @@
 <p>把核心放在要搭建服务器的文件夹里（用于存放所有的配置和世界文件），打开终端进入这个文件夹</p>
 </li>
 <li><p>开启服务器的命令是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar minecraft_server.jar --nogui</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>jar minecraft_server<span class="token punctuation">.</span>jar <span class="token operator">--</span>nogui<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>–nogui ：就是no gui（图形界面）（但似乎加上它仍然会跳出图形界面）</p>
 </li>
 <li><p>此时服务器应该会立刻关闭，会有提示</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[13:47:19] [main/ERROR]: Failed to load properties from file: server.properties</span><br><span class="line">[13:47:19] [main/WARN]: Failed to load eula.txt</span><br><span class="line">[13:47:19] [main/INFO]: You need to agree to the EULA <span class="keyword">in</span> order to run the server. Go to eula.txt <span class="keyword">for</span> more info.</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/ERROR<span class="token punctuation">]</span>: Failed to load properties from file: server.properties
+<span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/WARN<span class="token punctuation">]</span>: Failed to load eula.txt
+<span class="token punctuation">[</span><span class="token number">13</span>:47:19<span class="token punctuation">]</span> <span class="token punctuation">[</span>main/INFO<span class="token punctuation">]</span>: You need to agree to the EULA <span class="token keyword">in</span> order to run the server. Go to eula.txt <span class="token keyword">for</span> <span class="token function">more</span> info.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>在文件夹里会多出eula.txt 打开并改成eula=true</p>
 <blockquote>
@@ -301,7 +303,7 @@
 <p>   此时再运行服务器就可以正常进行了</p>
 <p>   不过对<em>Minecraft</em> 服务器来说最重要的是运行内存，所以加上-Xmx选项可以指定运行内存限制， 一般-Xmx4G就很绰绰有余了</p>
 <p>通过</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar server.jar -<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar server.jar -help<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>可以查看更多的开服选项</p>
 </li>
@@ -414,7 +416,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
