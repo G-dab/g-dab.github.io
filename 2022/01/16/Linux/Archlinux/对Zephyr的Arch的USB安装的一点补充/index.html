@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"g-dab.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="https:&#x2F;&#x2F;zephyrheather.github.io&#x2F;2021&#x2F;07&#x2F;16&#x2F;arch-linux-usb-an-zhuang-pian&#x2F;#toc-heading-11 再次感谢Zephyr带领我进入了神奇的Linux世界~~ 这里补充一个危险的操作拓展~ 说在前面 对于MBR&amp;GPT BIOS&amp;UEFI boot loader更详细的了解： 参考  https:&#x2F;&#x2F;www">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对Zephyr‘s Arch的USB安装的一点补充">
+<meta property="og:url" content="https://g-dab.gitee.io/2022/01/16/Linux/Archlinux/%E5%AF%B9Zephyr%E7%9A%84Arch%E7%9A%84USB%E5%AE%89%E8%A3%85%E7%9A%84%E4%B8%80%E7%82%B9%E8%A1%A5%E5%85%85/index.html">
+<meta property="og:site_name" content="ggdab~~">
+<meta property="og:description" content="https:&#x2F;&#x2F;zephyrheather.github.io&#x2F;2021&#x2F;07&#x2F;16&#x2F;arch-linux-usb-an-zhuang-pian&#x2F;#toc-heading-11 再次感谢Zephyr带领我进入了神奇的Linux世界~~ 这里补充一个危险的操作拓展~ 说在前面 对于MBR&amp;GPT BIOS&amp;UEFI boot loader更详细的了解： 参考  https:&#x2F;&#x2F;www">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-15T16:56:00.000Z">
+<meta property="article:modified_time" content="2022-01-25T06:08:22.058Z">
+<meta property="article:author" content="G.dab">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://g-dab.gitee.io/2022/01/16/Linux/Archlinux/%E5%AF%B9Zephyr%E7%9A%84Arch%E7%9A%84USB%E5%AE%89%E8%A3%85%E7%9A%84%E4%B8%80%E7%82%B9%E8%A1%A5%E5%85%85/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>对Zephyr‘s Arch的USB安装的一点补充 | ggdab~~</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ggdab~~</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-霍格沃兹">
+
+    <a href="/" rel="section"><i class="fas fa-hat-wizard fa-fw"></i>霍格沃兹</a>
+
+  </li>
+        <li class="menu-item menu-item-对角巷">
+
+    <a href="/alley/" rel="section"><i class="fas fa-ghost fa-fw"></i>对角巷</a>
+
+  </li>
+        <li class="menu-item menu-item-古灵阁(caution!)">
+
+    <a href="/tags/" rel="section"><i class="fas fa-dragon fa-fw"></i>古灵阁(caution!)</a>
+
+  </li>
+        <li class="menu-item menu-item-魔药课">
+
+    <a href="/categories/" rel="section"><i class="fas fa-magic fa-fw"></i>魔药课</a>
+
+  </li>
+        <li class="menu-item menu-item-魁地奇-quidditch">
+
+    <a href="/archives/" rel="section"><i class="fas fa-quidditch fa-fw"></i>魁地奇 quidditch</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/Linux/Archlinux/%E5%AF%B9Zephyr%E7%9A%84Arch%E7%9A%84USB%E5%AE%89%E8%A3%85%E7%9A%84%E4%B8%80%E7%82%B9%E8%A1%A5%E5%85%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对Zephyr‘s Arch的USB安装的一点补充
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-16 00:56:00" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-25 14:08:22" itemprop="dateModified" datetime="2022-01-25T14:08:22+08:00">2022-01-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-Archlinux/" itemprop="url" rel="index"><span itemprop="name">Linux - Archlinux</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://zephyrheather.github.io/2021/07/16/arch-linux-usb-an-zhuang-pian/#toc-heading-11">https://zephyrheather.github.io/2021/07/16/arch-linux-usb-an-zhuang-pian/#toc-heading-11</a></p>
+<p>再次感谢Zephyr带领我进入了神奇的Linux世界~~</p>
+<p>这里补充一个危险的操作拓展~</p>
+<p>说在前面</p>
+<p>对于<strong>MBR&amp;GPT BIOS&amp;UEFI boot loader</strong>更详细的了解：</p>
+<p>参考  <a target="_blank" rel="noopener" href="https://www.kancloud.cn/ghostyz/linux/1872295">https://www.kancloud.cn/ghostyz/linux/1872295</a></p>
+<hr>
+<p><strong>MBR 和 GPT</strong> 是两种磁盘的分区方法，在Linux分区中我们如果不创建gpt分区表，那么分区信息就只写在第一个扇区，也就是使用MBR的方式进行分区。gpt相比mbr有很多优势，虽然在个人电脑上可能体现不大，但GPT终将取代MBR，所以我们应该使用GPT分区方式</p>
+<blockquote>
+<p>不过部分更更老些的磁盘不支持GPT的分区方式，但我们使用的是U盘，所以没这个问题</p>
+</blockquote>
+<p><strong>BIOS 和 UEFI</strong> 是两种写死在主板上的固件，也是电脑插电后启动的第一个程序，也叫开机检测程序，负责读取磁盘上的信息，找到启动引导程序boot loader，然后启动它。其实是为了改进BIOS所以先有UEFI，之后伴随着产生了GPT。所以经常会把它们绑定起来BIOS/MBR UEFI/GPT </p>
+<p>BIOS原本应该只能读取MBR的分区方式，但GPT的LBA0区块是MBR兼容区块，意味着它也是可以兼容BIOS的</p>
+<p>而UEFI模式是可以选择用BIOS方式启动</p>
+<blockquote>
+<p>UEFI也叫UEFI BIOS, 原先的BIOS也称为legacy BIOS，很多场合可能会混用</p>
+</blockquote>
+<blockquote>
+<p>综上，唯一的问题是现在仍有一些电脑只支持BIOS启动模式（俺的电脑。。。）</p>
+</blockquote>
+<p>所以这里对Zephyr的教程加一点补充，使得U盘也能支持BIOS启动模式</p>
+<hr>
+<p>参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Multiboot_USB_drive#Hybrid_UEFI_GPT_+_BIOS_GPT/MBR_boot">ttps://wiki.archlinux.org/title/Multiboot_USB_drive#Hybrid_UEFI_GPT_+_BIOS_GPT/MBR_boot</a></p>
+<h3 id="增加分区"><a href="#增加分区" class="headerlink" title="增加分区"></a>增加分区</h3><p>除了efi分区和存放数据的分区，还需要增加一个存放BIOS启动引导程序的分区</p>
+<ol>
+<li>1M大小即可</li>
+<li>设置type为BIOS boot （重要）</li>
+</ol>
+<h3 id="启用Hybrid-MBR"><a href="#启用Hybrid-MBR" class="headerlink" title="启用Hybrid MBR"></a>启用Hybrid MBR</h3><p>利用Hybrid UEFI GPT + BIOS GPT/MBR boot</p>
+<blockquote>
+<p>Hybrid MBR: <a target="_blank" rel="noopener" href="https://www.rodsbooks.com/gdisk/hybrid.html">https://www.rodsbooks.com/gdisk/hybrid.html</a><br>warning: 使用混合MBR是一种危险，丑陋的操作，倘若没有需要完全不需要使用!!<br>虽然它仍保留了GPT分区对操作系统的好处，仍然很可能有情况下操作系统将其识别为MBR！</p>
+</blockquote>
+<p>将你的GPT分区表转化为Hybrid MBR (使用gdisk)</p>
+<p>假定U盘文件名为 /dev/sdx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdisk /dev/sdX</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">GPT fdisk (gdisk) version 1.0.4</span><br><span class="line"></span><br><span class="line">Partition table scan:</span><br><span class="line">  MBR: protective</span><br><span class="line">  BSD: not present</span><br><span class="line">  APM: not present</span><br><span class="line">  GPT: present</span><br><span class="line"></span><br><span class="line">Found valid GPT with protective MBR; using GPT.</span><br><span class="line"></span><br><span class="line">Command (? <span class="keyword">for</span> <span class="built_in">help</span>): r</span><br><span class="line">Recovery/transformation <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): h</span><br><span class="line"></span><br><span class="line">WARNING! Hybrid MBRs are flaky and dangerous! If you decide not to use one,</span><br><span class="line">just hit the Enter key at the below prompt and your MBR partition table will</span><br><span class="line">be untouched.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>按r进入recovery &amp; transformation菜单后可按p再次核对自己的分区情况</p>
+</blockquote>
+<p>以三个分区为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Type from one to three GPT partition numbers, separated by spaces, to be added to the hybrid MBR, <span class="keyword">in</span> sequence: 1 2 3</span><br><span class="line">Place EFI GPT (0xEE) partition first <span class="keyword">in</span> MBR (good <span class="keyword">for</span> GRUB)? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#1 (MBR partition #1)</span></span><br><span class="line">Enter an MBR hex code (default EF): </span><br><span class="line">Set the bootable flag? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#2 (MBR partition #2)</span></span><br><span class="line">Enter an MBR hex code (default EF): </span><br><span class="line">Set the bootable flag? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#3 (MBR partition #3)</span></span><br><span class="line">Enter an MBR hex code (default 83): </span><br><span class="line">Set the bootable flag? (Y/N): Y</span><br><span class="line"></span><br><span class="line">Recovery/transformation <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): x</span><br><span class="line">Expert <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): h</span><br><span class="line">Expert <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): w</span><br><span class="line"></span><br><span class="line">Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING</span><br><span class="line">PARTITIONS!!</span><br><span class="line"></span><br><span class="line">Do you want to proceed? (Y/N): Y</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果还有额外分区存放数据记得要加上bootable flag（The boot flag is from ancient times…）</p>
+</blockquote>
+<p>继续安装。。。</p>
+<blockquote>
+<p>注： (不要格式化装BIOS的grub的那1M分区，也不用挂载)</p>
+</blockquote>
+<h3 id="安装grub"><a href="#安装grub" class="headerlink" title="安装grub"></a>安装grub</h3><p><strong>UEFI/GPT</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=esp  --removable --recheck</span><br></pre></td></tr></table></figure>
+
+<p><strong>BIOS/MBR</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>MBR下安装grub里设备是 /dev/sdx    后面没有数字</p>
+</blockquote>
+<p>生成grub配置即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/13/Harry-Potter/" rel="prev" title="Potter">
+      <i class="fa fa-chevron-left"></i> Potter
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/16/Linux/Notes/X%20window/" rel="next" title="X Window">
+      X Window <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E5%88%86%E5%8C%BA"><span class="nav-number">1.</span> <span class="nav-text">增加分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8Hybrid-MBR"><span class="nav-number">2.</span> <span class="nav-text">启用Hybrid MBR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85grub"><span class="nav-number">3.</span> <span class="nav-text">安装grub</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="G.dab"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">G.dab</p>
+  <div class="site-description" itemprop="description">空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      my friends
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://zephyrheather.github.io/" title="https:&#x2F;&#x2F;zephyrheather.github.io" rel="noopener" target="_blank">Zephyr's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ck-killer.github.io/" title="https:&#x2F;&#x2F;ck-killer.github.io" rel="noopener" target="_blank">CK'Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">G.dab</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fas fa-universal-access"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
