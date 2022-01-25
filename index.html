@@ -226,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/linux/archlinux/dui-zephyr-s-arch-de-usb-an-zhuang-de-yi-dian-bu-chong/">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/wsl/readme/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -240,7 +240,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/16/mo-yao-ke/linux/archlinux/dui-zephyr-s-arch-de-usb-an-zhuang-de-yi-dian-bu-chong/" class="post-title-link" itemprop="url">对Zephyr's Arch的USB安装的一点补充</a>
+            <a href="/2022/01/16/mo-yao-ke/wsl/readme/" class="post-title-link" itemprop="url">README</a>
         </h2>
 
         <div class="post-meta">
@@ -249,27 +249,21 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-01-16 00:56:00" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+              <time title="Created: 2022-01-16 00:56:00 / Modified: 01:02:55" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-25 14:15:40" itemprop="dateModified" datetime="2022-01-25T14:15:40+08:00">2022-01-25</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                  <a href="/categories/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Archlinux/" itemprop="url" rel="index"><span itemprop="name">Archlinux</span></a>
+                  <a href="/categories/WSL/README/" itemprop="url" rel="index"><span itemprop="name">README</span></a>
                 </span>
             </span>
 
@@ -284,109 +278,343 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a target="_blank" rel="noopener" href="https://zephyrheather.github.io/2021/07/16/arch-linux-usb-an-zhuang-pian/#toc-heading-11">https://zephyrheather.github.io/2021/07/16/arch-linux-usb-an-zhuang-pian/#toc-heading-11</a></p>
-<p>再次感谢Zephyr带领我进入了神奇的Linux世界~~</p>
-<p>这里补充一个危险的操作拓展~</p>
-<p>说在前面</p>
-<p>对于<strong>MBR&amp;GPT BIOS&amp;UEFI boot loader</strong>更详细的了解：</p>
-<p>参考  <a target="_blank" rel="noopener" href="https://www.kancloud.cn/ghostyz/linux/1872295">https://www.kancloud.cn/ghostyz/linux/1872295</a></p>
+          <h1 id="README"><a href="#README" class="headerlink" title="README"></a>README</h1><p>WSL 是 Windows Subsystem for Linux  （适用于 Linux 的 Windows 子系统），此处必须要说明的是Linux是与Windows既然不同的操作系统，它亲切又高深莫测，它开放又安全可靠</p>
+<p>此处放上自己关于WSL的研究，是因为目前学生们主流还是用Windows的较多，加上课业也繁重，就算有心想要使用Linux上，无奈直接转行会带来很多的不便之处，而WSL继承了Linux一些发行版的绝大部分特性，可以说是过渡和学习的绝佳方式，帮助给WIndows系统提供很多的Linux特性。不过此处仍然必须得强调Linux应当作为爱好者们的最终归属，单单会使用WSL还是极其有限的，只有完全使用Linux才能说真正的融入到Linux中。</p>
+<p>WSL官方文档 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/">https://docs.microsoft.com/en-us/windows/wsl/</a> （把en-us改成zh-cn可看中文）</p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux Documentation</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/wsl/wsl-gui/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/16/mo-yao-ke/wsl/wsl-gui/" class="post-title-link" itemprop="url">GUI-XWindow</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-01-16 00:56:00 / Modified: 01:06:18" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WSL/Contents/" itemprop="url" rel="index"><span itemprop="name">Contents</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="X-Window"><a href="#X-Window" class="headerlink" title="X Window"></a>X Window</h3><p>​    参考 <a target="_blank" rel="noopener" href="https://www.kancloud.cn/ghostyz/linux/1872477">https://www.kancloud.cn/ghostyz/linux/1872477</a></p>
+<p>在WSL上运行Linux的GUI应用</p>
+<p>​    参考 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/gui-apps">https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/gui-apps</a></p>
+<blockquote>
+<p>Linux 和 Windows 应用的无缝衔接~~~</p>
+</blockquote>
+<p>官网上给出的是使用虚拟GPU驱动来实现，这里介绍一个不同的方法，即便是WSL1也可以达到效果</p>
 <hr>
-<p><strong>MBR 和 GPT</strong> 是两种磁盘的分区方法，在Linux分区中我们如果不创建gpt分区表，那么分区信息就只写在第一个扇区，也就是使用MBR的方式进行分区。gpt相比mbr有很多优势，虽然在个人电脑上可能体现不大，但GPT终将取代MBR，所以我们应该使用GPT分区方式</p>
-<blockquote>
-<p>不过部分更更老些的磁盘不支持GPT的分区方式，但我们使用的是U盘，所以没这个问题</p>
+<p>这里我们使用的是<strong>VcXsrv</strong>，是基于x开发的windows上的x server （所以应用图标就是xorg~）</p>
+<p>可以在source forge 上下载 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vcxsrv/">https://sourceforge.net/projects/vcxsrv/</a></p>
+<img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220115231737.png" style="zoom:50%;" />
+
+<p>打开 XLaunch后显示的是这样的配置界面</p>
+<img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220115231921.png" style="zoom:50%;" />
+
+<p>我们选择先启动 x server，之后通过wsl启动x client</p>
+<p><img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220115231941.png" style="zoom:30%;" /><img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220116002743.png" style="zoom:30%;" /></p>
+<p>注意要勾选 disableaccess control,这样就关闭了x server连接验证</p>
+<p>否则报错 <code>Authorization required, but no authorization protocol specified</code></p>
+<h3 id="DISPALY环境变量"><a href="#DISPALY环境变量" class="headerlink" title="DISPALY环境变量"></a>DISPALY环境变量</h3><blockquote>
+<p>DISPLAY用来设置将图形显示到何处，这里我们的所要用到的每一个gui应用其实就是一个x client，所以只要把DISPLAY路径设置到windows的x server上就可以运行应用了</p>
 </blockquote>
-<p><strong>BIOS 和 UEFI</strong> 是两种写死在主板上的固件，也是电脑插电后启动的第一个程序，也叫开机检测程序，负责读取磁盘上的信息，找到启动引导程序boot loader，然后启动它。其实是为了改进BIOS所以先有UEFI，之后伴随着产生了GPT。所以经常会把它们绑定起来BIOS/MBR UEFI/GPT </p>
-<p>BIOS原本应该只能读取MBR的分区方式，但GPT的LBA0区块是MBR兼容区块，意味着它也是可以兼容BIOS的</p>
-<p>而UEFI模式是可以选择用BIOS方式启动</p>
+<p>DISPLAY环境变量格式为   <code>host:NumA.NumB</code><br><strong>host</strong>： Xserver所在的主机主机名或者ip地址, 图形将显示在这一机器上<br>如果Host为空, 则表示Xserver运行于本机</p>
+<p>查看当前的DISPLAY环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$DISPLAY</span></span><br></pre></td></tr></table></figure>
+
+<p>DISPLAY默认情况下应该为空</p>
+<p>之前我们在启动X Server时它的display number为-1，表示默认值，也就是0.0</p>
+<p>但在wsl里设置  <code>export DISPLAY=:0.0 </code> 后运行应用时出现报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Can<span class="string">&#x27;t open display: :0.0</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>UEFI也叫UEFI BIOS, 原先的BIOS也称为legacy BIOS，很多场合可能会混用</p>
+<p>wsl1的时候可以，而wsl2却不行，我推测是因为wsl2更加趋向于原生态的linux，所以把本地主机和wsl系统隔离开来了</p>
 </blockquote>
+<p>那我们就不妨采用ip的方式设置，毕竟两者连的是一个局域网</p>
 <blockquote>
-<p>综上，唯一的问题是现在仍有一些电脑只支持BIOS启动模式（俺的电脑。。。）</p>
+<p>可以在cmd用ipconfig查询主机ip</p>
+<p>确实发现ip地址里多出了wsl的ip，说明是把这个虚拟系统和windows系统分开了，相当于它有了自己的虚拟网卡，这个才应该是x server相应的ip，而不是localhost</p>
 </blockquote>
-<p>所以这里对Zephyr的教程加一点补充，使得U盘也能支持BIOS启动模式</p>
-<hr>
-<p>参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Multiboot_USB_drive#Hybrid_UEFI_GPT_+_BIOS_GPT/MBR_boot">ttps://wiki.archlinux.org/title/Multiboot_USB_drive#Hybrid_UEFI_GPT_+_BIOS_GPT/MBR_boot</a></p>
-<h3 id="增加分区"><a href="#增加分区" class="headerlink" title="增加分区"></a>增加分区</h3><p>除了efi分区和存放数据的分区，还需要增加一个存放BIOS启动引导程序的分区</p>
-<ol>
-<li>1M大小即可</li>
-<li>设置type为BIOS boot （重要）</li>
+<p>此时再输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DISPLAY=wsl的ip:0.0 </span><br><span class="line"><span class="comment">#或是 export DISPLAY=wsl的ip:0</span></span><br></pre></td></tr></table></figure>
+
+<p>就可以运行linux程序啦！！！（可以尝试尝试xeyes,xclock,…）</p>
+<h3 id="Q-amp-W"><a href="#Q-amp-W" class="headerlink" title="Q&amp;W"></a>Q&amp;W</h3><ol>
+<li><p>想运行多个x client<br> 可以打开多个wsl终端，如果嫌占地方可以使用windows terminal</p>
+</li>
+<li><p>如何保存配置<br> 在<del>/.bashrc(或是</del>/.zshrc)中添加</p>
+</li>
 </ol>
-<h3 id="启用Hybrid-MBR"><a href="#启用Hybrid-MBR" class="headerlink" title="启用Hybrid MBR"></a>启用Hybrid MBR</h3><p>利用Hybrid UEFI GPT + BIOS GPT/MBR boot</p>
-<blockquote>
-<p>Hybrid MBR: <a target="_blank" rel="noopener" href="https://www.rodsbooks.com/gdisk/hybrid.html">https://www.rodsbooks.com/gdisk/hybrid.html</a><br>warning: 使用混合MBR是一种危险，丑陋的操作，倘若没有需要完全不需要使用!!<br>虽然它仍保留了GPT分区对操作系统的好处，仍然很可能有情况下操作系统将其识别为MBR！</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DISPLAY=$(awk <span class="string">&#x27;/nameserver / &#123;print $2; exit&#125;&#x27;</span> /etc/resolv.conf 2&gt;/dev/null):0</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/wsl/vscode-c-in-wsl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/16/mo-yao-ke/wsl/vscode-c-in-wsl/" class="post-title-link" itemprop="url">vscode && C++ in WSL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-01-16 00:56:00 / Modified: 01:07:24" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WSL/Contents/" itemprop="url" rel="index"><span itemprop="name">Contents</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="vscode-amp-amp-C-in-WSL"><a href="#vscode-amp-amp-C-in-WSL" class="headerlink" title="vscode &amp;&amp; C++ in WSL"></a>vscode &amp;&amp; C++ in WSL</h1><p>参考文档 </p>
+<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/cpp/config-wsl">Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code</a></p>
+<p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">Remote - WSL - Visual Studio Marketplace</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode#install-vs-code-and-the-remote-wsl-extension">Get started using VS Code with WSL</a></p>
+<h3 id="安装插件-Remote-WSL"><a href="#安装插件-Remote-WSL" class="headerlink" title="安装插件 Remote - WSL"></a>安装插件 Remote - WSL</h3><blockquote>
+<p>直接使用WSL+XLaunch 可以在原生的WSL上开发，而用Remote - WSL可以在Windows环境下用VScode操作WSL里的代码</p>
 </blockquote>
-<p>将你的GPT分区表转化为Hybrid MBR (使用gdisk)</p>
-<p>假定U盘文件名为 /dev/sdx</p>
-<pre><code class="bash">gdisk /dev/sdX
-</code></pre>
-<pre><code class="bash">GPT fdisk (gdisk) version 1.0.4
+<p>如果WSL里也装了VScode，那可以改环境变量, 或是卸载WSL里的VScode</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//code 命令的环境变量提醒</span><br><span class="line">To use Visual Studio Code with the Windows Subsystem <span class="keyword">for</span> Linux, please install Visual Studio Code <span class="keyword">in</span> Windows and uninstall the Linux version <span class="keyword">in</span> WSL. You can <span class="keyword">then</span> use the `code` <span class="built_in">command</span> <span class="keyword">in</span> a WSL terminal just as you would <span class="keyword">in</span> a normal <span class="built_in">command</span> prompt</span><br></pre></td></tr></table></figure>
 
-Partition table scan:
-  MBR: protective
-  BSD: not present
-  APM: not present
-  GPT: present
-
-Found valid GPT with protective MBR; using GPT.
-
-Command (? for help): r
-Recovery/transformation command (? for help): h
-
-WARNING! Hybrid MBRs are flaky and dangerous! If you decide not to use one,
-just hit the Enter key at the below prompt and your MBR partition table will
-be untouched.
-</code></pre>
+<p>打开WSL终端，然后进入想打开的目录, 执行</p>
 <blockquote>
-<p>按r进入recovery &amp; transformation菜单后可按p再次核对自己的分区情况</p>
+<p>问题：只能使用root执行，使用其他用户就显示没有code命令</p>
 </blockquote>
-<p>以三个分区为例</p>
-<pre><code class="bash">
-Type from one to three GPT partition numbers, separated by spaces, to be added to the hybrid MBR, in sequence: 1 2 3
-Place EFI GPT (0xEE) partition first in MBR (good for GRUB)? (Y/N): N
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code .       //用VScode打开当前目录</span><br></pre></td></tr></table></figure>
 
-Creating entry for GPT partition #1 (MBR partition #1)
-Enter an MBR hex code (default EF): 
-Set the bootable flag? (Y/N): N
+<p>这时候会安装 VS Code Server</p>
+<p>Windows里的VScode应该就直接启动了</p>
+<p>左下角有标记</p>
+<img src="https://gitee.com/g-dab/image-blog/raw/master/img/Untitled.png" style="zoom:80%;" />
 
-Creating entry for GPT partition #2 (MBR partition #2)
-Enter an MBR hex code (default EF): 
-Set the bootable flag? (Y/N): N
+<p>表示在WSL系统下跑</p>
+<p>如果安装了多个WSL，可以<code>CTRL+SHIFT+P</code> 调出命令面板，以访问更多 VS Code 远程选项，随后键入 <code>Remote-WSL</code> 来选择发行版</p>
+<h2 id="Compiler-和-debugger"><a href="#Compiler-和-debugger" class="headerlink" title="Compiler 和 debugger"></a>Compiler 和 debugger</h2><p>WSL 没有默认安装编译器，所以我们需要自己安装g++和gdb来compile和debug</p>
+<p>install the GNU compiler tools （含g++） and the GDB debugger</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential gdb</span><br></pre></td></tr></table></figure>
 
-Creating entry for GPT partition #3 (MBR partition #3)
-Enter an MBR hex code (default 83): 
-Set the bootable flag? (Y/N): Y
+<p>检查一下安装是否成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">whereis g++</span><br><span class="line">whereis gdb</span><br></pre></td></tr></table></figure>
 
-Recovery/transformation command (? for help): x
-Expert command (? for help): h
-Expert command (? for help): w
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><strong>Terminal</strong> &gt; <strong>Configure Default Build Task 选择g++为默认编译器，创建task.json</strong></p>
+<p><strong>F5 开启g++debug 创建launch.json</strong></p>
 
-Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
-PARTITIONS!!
+      
+    </div>
 
-Do you want to proceed? (Y/N): Y
-</code></pre>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/wsl/wsl-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/16/mo-yao-ke/wsl/wsl-install/" class="post-title-link" itemprop="url">Install-and-Upgrade</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-01-16 00:56:00 / Modified: 00:59:58" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WSL/Contents/" itemprop="url" rel="index"><span itemprop="name">Contents</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="WSL—启用适用于-Linux-的-Windows-子系统选项"><a href="#WSL—启用适用于-Linux-的-Windows-子系统选项" class="headerlink" title="WSL—启用适用于 Linux 的 Windows 子系统选项"></a>WSL—启用适用于 Linux 的 Windows 子系统选项</h2><p>[TOC]</p>
+<p>命令行操作</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows</span><span class="literal">-Subsystem</span><span class="literal">-Linux</span> /all /norestart</span><br></pre></td></tr></table></figure>
+
+<p>或者：控制面板-&gt;程序和功能-&gt;启用或关闭Windows功能-&gt;勾选 适用于Linux的Windows子系统</p>
+<p>重启</p>
+<h2 id="安装WSL1"><a href="#安装WSL1" class="headerlink" title="安装WSL1"></a>安装WSL1</h2><ol>
+<li><p>windows app store</p>
+</li>
+<li><p>命令行安装</p>
+<p>查看可选发行版</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -<span class="literal">-list</span> -<span class="literal">-online</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -<span class="literal">-install</span> <span class="literal">-d</span> &lt;Distribution Name&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>在官网上有安装包可以<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#troubleshooting-installation">下载</a>（推荐，这样你就可以把子系统安装在自己选定的目录下,what i am doing）</p>
 <blockquote>
-<p>如果还有额外分区存放数据记得要加上bootable flag（The boot flag is from ancient times…）</p>
+<p>将下载的linux包的后缀由.Appx改为.zip，将解压的文件移动到要安装的目录。</p>
 </blockquote>
-<p>继续安装。。。</p>
+</li>
+</ol>
+<h2 id="升级到WSL2"><a href="#升级到WSL2" class="headerlink" title="升级到WSL2"></a>升级到WSL2</h2><p>比较WSL2和WSL1</p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/compare-versions">https://docs.microsoft.com/zh-cn/windows/wsl/compare-versions</a></p>
 <blockquote>
-<p>注： (不要格式化装BIOS的grub的那1M分区，也不用挂载)</p>
+<p>注：WSL2更贴近linux内核，所以使用WSL2就不能把WSL文件系统放到windows指定文件夹里了</p>
 </blockquote>
-<h3 id="安装grub"><a href="#安装grub" class="headerlink" title="安装grub"></a>安装grub</h3><p><strong>UEFI/GPT</strong></p>
-<pre><code class="bash">grub-install --target=x86_64-efi --efi-directory=esp  --removable --recheck
-</code></pre>
-<p><strong>BIOS/MBR</strong></p>
-<pre><code class="bash">
-grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX
-</code></pre>
-<blockquote>
-<p>MBR下安装grub里设备是 /dev/sdx    后面没有数字</p>
-</blockquote>
-<p>生成grub配置即可</p>
-<pre><code class="bash">grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre>
+<p>康康自己的wsl的version</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -l -v</span><br></pre></td></tr></table></figure>
 
+<p>如果是wsl1的话可以升级到wsl2</p>
+<blockquote>
+<p>不确定：而且只有升级了以后才可以运行docker engine</p>
+</blockquote>
+<p><strong>安装步骤</strong></p>
+<p>详细步骤： <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package">https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package</a></p>
+<p>一些补充：</p>
+<p>这样可以指定转换原先已安装的WSL1为WSL2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-version &lt;wsl发行版&gt;  2</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -502,7 +730,7 @@ grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/wsl/wsl-gui/">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/linux/archlinux/dui-zephyr-s-arch-de-usb-an-zhuang-de-yi-dian-bu-chong/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -516,7 +744,7 @@ grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/16/mo-yao-ke/wsl/wsl-gui/" class="post-title-link" itemprop="url">GUI-XWindow</a>
+            <a href="/2022/01/16/mo-yao-ke/linux/archlinux/dui-zephyr-s-arch-de-usb-an-zhuang-de-yi-dian-bu-chong/" class="post-title-link" itemprop="url">对Zephyr's Arch的USB安装的一点补充</a>
         </h2>
 
         <div class="post-meta">
@@ -525,21 +753,27 @@ grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-01-16 00:56:00 / Modified: 01:06:18" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+              <time title="Created: 2022-01-16 00:56:00" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-25 14:15:40" itemprop="dateModified" datetime="2022-01-25T14:15:40+08:00">2022-01-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL/Contents/" itemprop="url" rel="index"><span itemprop="name">Contents</span></a>
+                  <a href="/categories/Linux/Archlinux/" itemprop="url" rel="index"><span itemprop="name">Archlinux</span></a>
                 </span>
             </span>
 
@@ -554,350 +788,68 @@ grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="X-Window"><a href="#X-Window" class="headerlink" title="X Window"></a>X Window</h3><p>​    参考 <a target="_blank" rel="noopener" href="https://www.kancloud.cn/ghostyz/linux/1872477">https://www.kancloud.cn/ghostyz/linux/1872477</a></p>
-<p>在WSL上运行Linux的GUI应用</p>
-<p>​    参考 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/gui-apps">https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/gui-apps</a></p>
-<blockquote>
-<p>Linux 和 Windows 应用的无缝衔接~~~</p>
-</blockquote>
-<p>官网上给出的是使用虚拟GPU驱动来实现，这里介绍一个不同的方法，即便是WSL1也可以达到效果</p>
+          <p><a target="_blank" rel="noopener" href="https://zephyrheather.github.io/2021/07/16/arch-linux-usb-an-zhuang-pian/#toc-heading-11">https://zephyrheather.github.io/2021/07/16/arch-linux-usb-an-zhuang-pian/#toc-heading-11</a></p>
+<p>再次感谢Zephyr带领我进入了神奇的Linux世界~~</p>
+<p>这里补充一个危险的操作拓展~</p>
+<p>说在前面</p>
+<p>对于<strong>MBR&amp;GPT BIOS&amp;UEFI boot loader</strong>更详细的了解：</p>
+<p>参考  <a target="_blank" rel="noopener" href="https://www.kancloud.cn/ghostyz/linux/1872295">https://www.kancloud.cn/ghostyz/linux/1872295</a></p>
 <hr>
-<p>这里我们使用的是<strong>VcXsrv</strong>，是基于x开发的windows上的x server （所以应用图标就是xorg~）</p>
-<p>可以在source forge 上下载 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vcxsrv/">https://sourceforge.net/projects/vcxsrv/</a></p>
-<img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220115231737.png" style="zoom:50%;" />
-
-<p>打开 XLaunch后显示的是这样的配置界面</p>
-<img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220115231921.png" style="zoom:50%;" />
-
-<p>我们选择先启动 x server，之后通过wsl启动x client</p>
-<p><img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220115231941.png" style="zoom:30%;" /><img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220116002743.png" style="zoom:30%;" /></p>
-<p>注意要勾选 disableaccess control,这样就关闭了x server连接验证</p>
-<p>否则报错 <code>Authorization required, but no authorization protocol specified</code></p>
-<h3 id="DISPALY环境变量"><a href="#DISPALY环境变量" class="headerlink" title="DISPALY环境变量"></a>DISPALY环境变量</h3><blockquote>
-<p>DISPLAY用来设置将图形显示到何处，这里我们的所要用到的每一个gui应用其实就是一个x client，所以只要把DISPLAY路径设置到windows的x server上就可以运行应用了</p>
-</blockquote>
-<p>DISPLAY环境变量格式为   <code>host:NumA.NumB</code><br><strong>host</strong>： Xserver所在的主机主机名或者ip地址, 图形将显示在这一机器上<br>如果Host为空, 则表示Xserver运行于本机</p>
-<p>查看当前的DISPLAY环境变量</p>
-<pre><code class="bash">echo $DISPLAY
-</code></pre>
-<p>DISPLAY默认情况下应该为空</p>
-<p>之前我们在启动X Server时它的display number为-1，表示默认值，也就是0.0</p>
-<p>但在wsl里设置  <code>export DISPLAY=:0.0 </code> 后运行应用时出现报错</p>
-<pre><code class="bash">Error: Can&#39;t open display: :0.0
-</code></pre>
+<p><strong>MBR 和 GPT</strong> 是两种磁盘的分区方法，在Linux分区中我们如果不创建gpt分区表，那么分区信息就只写在第一个扇区，也就是使用MBR的方式进行分区。gpt相比mbr有很多优势，虽然在个人电脑上可能体现不大，但GPT终将取代MBR，所以我们应该使用GPT分区方式</p>
 <blockquote>
-<p>wsl1的时候可以，而wsl2却不行，我推测是因为wsl2更加趋向于原生态的linux，所以把本地主机和wsl系统隔离开来了</p>
+<p>不过部分更更老些的磁盘不支持GPT的分区方式，但我们使用的是U盘，所以没这个问题</p>
 </blockquote>
-<p>那我们就不妨采用ip的方式设置，毕竟两者连的是一个局域网</p>
+<p><strong>BIOS 和 UEFI</strong> 是两种写死在主板上的固件，也是电脑插电后启动的第一个程序，也叫开机检测程序，负责读取磁盘上的信息，找到启动引导程序boot loader，然后启动它。其实是为了改进BIOS所以先有UEFI，之后伴随着产生了GPT。所以经常会把它们绑定起来BIOS/MBR UEFI/GPT </p>
+<p>BIOS原本应该只能读取MBR的分区方式，但GPT的LBA0区块是MBR兼容区块，意味着它也是可以兼容BIOS的</p>
+<p>而UEFI模式是可以选择用BIOS方式启动</p>
 <blockquote>
-<p>可以在cmd用ipconfig查询主机ip</p>
-<p>确实发现ip地址里多出了wsl的ip，说明是把这个虚拟系统和windows系统分开了，相当于它有了自己的虚拟网卡，这个才应该是x server相应的ip，而不是localhost</p>
+<p>UEFI也叫UEFI BIOS, 原先的BIOS也称为legacy BIOS，很多场合可能会混用</p>
 </blockquote>
-<p>此时再输入</p>
-<pre><code class="bash">export DISPLAY=wsl的ip:0.0 
-#或是 export DISPLAY=wsl的ip:0
-</code></pre>
-<p>就可以运行linux程序啦！！！（可以尝试尝试xeyes,xclock,…）</p>
-<h3 id="Q-amp-W"><a href="#Q-amp-W" class="headerlink" title="Q&amp;W"></a>Q&amp;W</h3><ol>
-<li><p>想运行多个x client<br> 可以打开多个wsl终端，如果嫌占地方可以使用windows terminal</p>
-</li>
-<li><p>如何保存配置<br> 在<del>/.bashrc(或是</del>/.zshrc)中添加</p>
-</li>
+<blockquote>
+<p>综上，唯一的问题是现在仍有一些电脑只支持BIOS启动模式（俺的电脑。。。）</p>
+</blockquote>
+<p>所以这里对Zephyr的教程加一点补充，使得U盘也能支持BIOS启动模式</p>
+<hr>
+<p>参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Multiboot_USB_drive#Hybrid_UEFI_GPT_+_BIOS_GPT/MBR_boot">ttps://wiki.archlinux.org/title/Multiboot_USB_drive#Hybrid_UEFI_GPT_+_BIOS_GPT/MBR_boot</a></p>
+<h3 id="增加分区"><a href="#增加分区" class="headerlink" title="增加分区"></a>增加分区</h3><p>除了efi分区和存放数据的分区，还需要增加一个存放BIOS启动引导程序的分区</p>
+<ol>
+<li>1M大小即可</li>
+<li>设置type为BIOS boot （重要）</li>
 </ol>
-<pre><code class="bash">export DISPLAY=$(awk &#39;/nameserver / &#123;print $2; exit&#125;&#39; /etc/resolv.conf 2&gt;/dev/null):0
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/wsl/vscode-c-in-wsl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="G.dab">
-      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ggdab~~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/16/mo-yao-ke/wsl/vscode-c-in-wsl/" class="post-title-link" itemprop="url">vscode && C++ in WSL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-01-16 00:56:00 / Modified: 01:07:24" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL/Contents/" itemprop="url" rel="index"><span itemprop="name">Contents</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="vscode-amp-amp-C-in-WSL"><a href="#vscode-amp-amp-C-in-WSL" class="headerlink" title="vscode &amp;&amp; C++ in WSL"></a>vscode &amp;&amp; C++ in WSL</h1><p>参考文档 </p>
-<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/cpp/config-wsl">Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code</a></p>
-<p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">Remote - WSL - Visual Studio Marketplace</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode#install-vs-code-and-the-remote-wsl-extension">Get started using VS Code with WSL</a></p>
-<h3 id="安装插件-Remote-WSL"><a href="#安装插件-Remote-WSL" class="headerlink" title="安装插件 Remote - WSL"></a>安装插件 Remote - WSL</h3><blockquote>
-<p>直接使用WSL+XLaunch 可以在原生的WSL上开发，而用Remote - WSL可以在Windows环境下用VScode操作WSL里的代码</p>
-</blockquote>
-<p>如果WSL里也装了VScode，那可以改环境变量, 或是卸载WSL里的VScode</p>
-<pre><code class="bash">//code 命令的环境变量提醒
-To use Visual Studio Code with the Windows Subsystem for Linux, please install Visual Studio Code in Windows and uninstall the Linux version in WSL. You can then use the `code` command in a WSL terminal just as you would in a normal command prompt
-</code></pre>
-<p>打开WSL终端，然后进入想打开的目录, 执行</p>
+<h3 id="启用Hybrid-MBR"><a href="#启用Hybrid-MBR" class="headerlink" title="启用Hybrid MBR"></a>启用Hybrid MBR</h3><p>利用Hybrid UEFI GPT + BIOS GPT/MBR boot</p>
 <blockquote>
-<p>问题：只能使用root执行，使用其他用户就显示没有code命令</p>
+<p>Hybrid MBR: <a target="_blank" rel="noopener" href="https://www.rodsbooks.com/gdisk/hybrid.html">https://www.rodsbooks.com/gdisk/hybrid.html</a><br>warning: 使用混合MBR是一种危险，丑陋的操作，倘若没有需要完全不需要使用!!<br>虽然它仍保留了GPT分区对操作系统的好处，仍然很可能有情况下操作系统将其识别为MBR！</p>
 </blockquote>
-<pre><code class="bash">code .       //用VScode打开当前目录
-</code></pre>
-<p>这时候会安装 VS Code Server</p>
-<p>Windows里的VScode应该就直接启动了</p>
-<p>左下角有标记</p>
-<img src="https://gitee.com/g-dab/image-blog/raw/master/img/Untitled.png" style="zoom:80%;" />
+<p>将你的GPT分区表转化为Hybrid MBR (使用gdisk)</p>
+<p>假定U盘文件名为 /dev/sdx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdisk /dev/sdX</span><br></pre></td></tr></table></figure>
 
-<p>表示在WSL系统下跑</p>
-<p>如果安装了多个WSL，可以<code>CTRL+SHIFT+P</code> 调出命令面板，以访问更多 VS Code 远程选项，随后键入 <code>Remote-WSL</code> 来选择发行版</p>
-<h2 id="Compiler-和-debugger"><a href="#Compiler-和-debugger" class="headerlink" title="Compiler 和 debugger"></a>Compiler 和 debugger</h2><p>WSL 没有默认安装编译器，所以我们需要自己安装g++和gdb来compile和debug</p>
-<p>install the GNU compiler tools （含g++） and the GDB debugger</p>
-<pre><code class="bash">sudo apt install build-essential gdb
-</code></pre>
-<p>检查一下安装是否成功</p>
-<pre><code class="bash">whereis g++
-whereis gdb
-</code></pre>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><strong>Terminal</strong> &gt; <strong>Configure Default Build Task 选择g++为默认编译器，创建task.json</strong></p>
-<p><strong>F5 开启g++debug 创建launch.json</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">GPT fdisk (gdisk) version 1.0.4</span><br><span class="line"></span><br><span class="line">Partition table scan:</span><br><span class="line">  MBR: protective</span><br><span class="line">  BSD: not present</span><br><span class="line">  APM: not present</span><br><span class="line">  GPT: present</span><br><span class="line"></span><br><span class="line">Found valid GPT with protective MBR; using GPT.</span><br><span class="line"></span><br><span class="line">Command (? <span class="keyword">for</span> <span class="built_in">help</span>): r</span><br><span class="line">Recovery/transformation <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): h</span><br><span class="line"></span><br><span class="line">WARNING! Hybrid MBRs are flaky and dangerous! If you decide not to use one,</span><br><span class="line">just hit the Enter key at the below prompt and your MBR partition table will</span><br><span class="line">be untouched.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/wsl/wsl-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="G.dab">
-      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ggdab~~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/16/mo-yao-ke/wsl/wsl-install/" class="post-title-link" itemprop="url">Install-and-Upgrade</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-01-16 00:56:00 / Modified: 00:59:58" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL/Contents/" itemprop="url" rel="index"><span itemprop="name">Contents</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="WSL—启用适用于-Linux-的-Windows-子系统选项"><a href="#WSL—启用适用于-Linux-的-Windows-子系统选项" class="headerlink" title="WSL—启用适用于 Linux 的 Windows 子系统选项"></a>WSL—启用适用于 Linux 的 Windows 子系统选项</h2><p>[TOC]</p>
-<p>命令行操作</p>
-<pre><code class="powershell">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-</code></pre>
-<p>或者：控制面板-&gt;程序和功能-&gt;启用或关闭Windows功能-&gt;勾选 适用于Linux的Windows子系统</p>
-<p>重启</p>
-<h2 id="安装WSL1"><a href="#安装WSL1" class="headerlink" title="安装WSL1"></a>安装WSL1</h2><ol>
-<li><p>windows app store</p>
-</li>
-<li><p>命令行安装</p>
-<p>查看可选发行版</p>
-<pre><code class="powershell">wsl --list --online
-</code></pre>
-<pre><code class="powershell">wsl --install -d &lt;Distribution Name&gt;
-</code></pre>
-</li>
-<li><p>在官网上有安装包可以<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#troubleshooting-installation">下载</a>（推荐，这样你就可以把子系统安装在自己选定的目录下,what i am doing）</p>
 <blockquote>
-<p>将下载的linux包的后缀由.Appx改为.zip，将解压的文件移动到要安装的目录。</p>
+<p>按r进入recovery &amp; transformation菜单后可按p再次核对自己的分区情况</p>
 </blockquote>
-</li>
-</ol>
-<h2 id="升级到WSL2"><a href="#升级到WSL2" class="headerlink" title="升级到WSL2"></a>升级到WSL2</h2><p>比较WSL2和WSL1</p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/compare-versions">https://docs.microsoft.com/zh-cn/windows/wsl/compare-versions</a></p>
+<p>以三个分区为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Type from one to three GPT partition numbers, separated by spaces, to be added to the hybrid MBR, <span class="keyword">in</span> sequence: 1 2 3</span><br><span class="line">Place EFI GPT (0xEE) partition first <span class="keyword">in</span> MBR (good <span class="keyword">for</span> GRUB)? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#1 (MBR partition #1)</span></span><br><span class="line">Enter an MBR hex code (default EF): </span><br><span class="line">Set the bootable flag? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#2 (MBR partition #2)</span></span><br><span class="line">Enter an MBR hex code (default EF): </span><br><span class="line">Set the bootable flag? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#3 (MBR partition #3)</span></span><br><span class="line">Enter an MBR hex code (default 83): </span><br><span class="line">Set the bootable flag? (Y/N): Y</span><br><span class="line"></span><br><span class="line">Recovery/transformation <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): x</span><br><span class="line">Expert <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): h</span><br><span class="line">Expert <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): w</span><br><span class="line"></span><br><span class="line">Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING</span><br><span class="line">PARTITIONS!!</span><br><span class="line"></span><br><span class="line">Do you want to proceed? (Y/N): Y</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>注：WSL2更贴近linux内核，所以使用WSL2就不能把WSL文件系统放到windows指定文件夹里了</p>
+<p>如果还有额外分区存放数据记得要加上bootable flag（The boot flag is from ancient times…）</p>
 </blockquote>
-<p>康康自己的wsl的version</p>
-<pre><code class="bash">wsl -l -v
-</code></pre>
-<p>如果是wsl1的话可以升级到wsl2</p>
+<p>继续安装。。。</p>
 <blockquote>
-<p>不确定：而且只有升级了以后才可以运行docker engine</p>
+<p>注： (不要格式化装BIOS的grub的那1M分区，也不用挂载)</p>
 </blockquote>
-<p><strong>安装步骤</strong></p>
-<p>详细步骤： <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package">https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package</a></p>
-<p>一些补充：</p>
-<p>这样可以指定转换原先已安装的WSL1为WSL2</p>
-<pre><code class="bash">wsl --set-version &lt;wsl发行版&gt;  2
-</code></pre>
+<h3 id="安装grub"><a href="#安装grub" class="headerlink" title="安装grub"></a>安装grub</h3><p><strong>UEFI/GPT</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=esp  --removable --recheck</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
+<p><strong>BIOS/MBR</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX</span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/wsl/readme/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="G.dab">
-      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ggdab~~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/16/mo-yao-ke/wsl/readme/" class="post-title-link" itemprop="url">README</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-01-16 00:56:00 / Modified: 01:02:55" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL/README/" itemprop="url" rel="index"><span itemprop="name">README</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="README"><a href="#README" class="headerlink" title="README"></a>README</h1><p>WSL 是 Windows Subsystem for Linux  （适用于 Linux 的 Windows 子系统），此处必须要说明的是Linux是与Windows既然不同的操作系统，它亲切又高深莫测，它开放又安全可靠</p>
-<p>此处放上自己关于WSL的研究，是因为目前学生们主流还是用Windows的较多，加上课业也繁重，就算有心想要使用Linux上，无奈直接转行会带来很多的不便之处，而WSL继承了Linux一些发行版的绝大部分特性，可以说是过渡和学习的绝佳方式，帮助给WIndows系统提供很多的Linux特性。不过此处仍然必须得强调Linux应当作为爱好者们的最终归属，单单会使用WSL还是极其有限的，只有完全使用Linux才能说真正的融入到Linux中。</p>
-<p>WSL官方文档 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/">https://docs.microsoft.com/en-us/windows/wsl/</a> （把en-us改成zh-cn可看中文）</p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux Documentation</a></p>
-
+<blockquote>
+<p>MBR下安装grub里设备是 /dev/sdx    后面没有数字</p>
+</blockquote>
+<p>生成grub配置即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
       
     </div>
 

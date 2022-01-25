@@ -263,54 +263,16 @@
 </blockquote>
 <p>将你的GPT分区表转化为Hybrid MBR (使用gdisk)</p>
 <p>假定U盘文件名为 /dev/sdx</p>
-<pre><code class="bash">gdisk /dev/sdX
-</code></pre>
-<pre><code class="bash">GPT fdisk (gdisk) version 1.0.4
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdisk /dev/sdX</span><br></pre></td></tr></table></figure>
 
-Partition table scan:
-  MBR: protective
-  BSD: not present
-  APM: not present
-  GPT: present
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">GPT fdisk (gdisk) version 1.0.4</span><br><span class="line"></span><br><span class="line">Partition table scan:</span><br><span class="line">  MBR: protective</span><br><span class="line">  BSD: not present</span><br><span class="line">  APM: not present</span><br><span class="line">  GPT: present</span><br><span class="line"></span><br><span class="line">Found valid GPT with protective MBR; using GPT.</span><br><span class="line"></span><br><span class="line">Command (? <span class="keyword">for</span> <span class="built_in">help</span>): r</span><br><span class="line">Recovery/transformation <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): h</span><br><span class="line"></span><br><span class="line">WARNING! Hybrid MBRs are flaky and dangerous! If you decide not to use one,</span><br><span class="line">just hit the Enter key at the below prompt and your MBR partition table will</span><br><span class="line">be untouched.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-Found valid GPT with protective MBR; using GPT.
-
-Command (? for help): r
-Recovery/transformation command (? for help): h
-
-WARNING! Hybrid MBRs are flaky and dangerous! If you decide not to use one,
-just hit the Enter key at the below prompt and your MBR partition table will
-be untouched.
-</code></pre>
 <blockquote>
 <p>按r进入recovery &amp; transformation菜单后可按p再次核对自己的分区情况</p>
 </blockquote>
 <p>以三个分区为例</p>
-<pre><code class="bash">
-Type from one to three GPT partition numbers, separated by spaces, to be added to the hybrid MBR, in sequence: 1 2 3
-Place EFI GPT (0xEE) partition first in MBR (good for GRUB)? (Y/N): N
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Type from one to three GPT partition numbers, separated by spaces, to be added to the hybrid MBR, <span class="keyword">in</span> sequence: 1 2 3</span><br><span class="line">Place EFI GPT (0xEE) partition first <span class="keyword">in</span> MBR (good <span class="keyword">for</span> GRUB)? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#1 (MBR partition #1)</span></span><br><span class="line">Enter an MBR hex code (default EF): </span><br><span class="line">Set the bootable flag? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#2 (MBR partition #2)</span></span><br><span class="line">Enter an MBR hex code (default EF): </span><br><span class="line">Set the bootable flag? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#3 (MBR partition #3)</span></span><br><span class="line">Enter an MBR hex code (default 83): </span><br><span class="line">Set the bootable flag? (Y/N): Y</span><br><span class="line"></span><br><span class="line">Recovery/transformation <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): x</span><br><span class="line">Expert <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): h</span><br><span class="line">Expert <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): w</span><br><span class="line"></span><br><span class="line">Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING</span><br><span class="line">PARTITIONS!!</span><br><span class="line"></span><br><span class="line">Do you want to proceed? (Y/N): Y</span><br></pre></td></tr></table></figure>
 
-Creating entry for GPT partition #1 (MBR partition #1)
-Enter an MBR hex code (default EF): 
-Set the bootable flag? (Y/N): N
-
-Creating entry for GPT partition #2 (MBR partition #2)
-Enter an MBR hex code (default EF): 
-Set the bootable flag? (Y/N): N
-
-Creating entry for GPT partition #3 (MBR partition #3)
-Enter an MBR hex code (default 83): 
-Set the bootable flag? (Y/N): Y
-
-Recovery/transformation command (? for help): x
-Expert command (? for help): h
-Expert command (? for help): w
-
-Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
-PARTITIONS!!
-
-Do you want to proceed? (Y/N): Y
-</code></pre>
 <blockquote>
 <p>如果还有额外分区存放数据记得要加上bootable flag（The boot flag is from ancient times…）</p>
 </blockquote>
@@ -319,19 +281,16 @@ Do you want to proceed? (Y/N): Y
 <p>注： (不要格式化装BIOS的grub的那1M分区，也不用挂载)</p>
 </blockquote>
 <h3 id="安装grub"><a href="#安装grub" class="headerlink" title="安装grub"></a>安装grub</h3><p><strong>UEFI/GPT</strong></p>
-<pre><code class="bash">grub-install --target=x86_64-efi --efi-directory=esp  --removable --recheck
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=esp  --removable --recheck</span><br></pre></td></tr></table></figure>
+
 <p><strong>BIOS/MBR</strong></p>
-<pre><code class="bash">
-grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>MBR下安装grub里设备是 /dev/sdx    后面没有数字</p>
 </blockquote>
 <p>生成grub配置即可</p>
-<pre><code class="bash">grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -346,10 +305,13 @@ grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/01/16/mo-yao-ke/linux/notes/x-window/" rel="prev" title="X Window">
-      <i class="fa fa-chevron-left"></i> X Window
+    <a href="/2022/01/13/dui-jiao-xiang/harry-potter/" rel="prev" title="Harry Potter">
+      <i class="fa fa-chevron-left"></i> Harry Potter
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/16/mo-yao-ke/linux/notes/x-window/" rel="next" title="X Window">
+      X Window <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     

@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"g-dab.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="[TOC] Minecraft一些简单命令mc命令既可以在服务器终端输入，也可以在玩的时候输入，这里只是简略得提及一些关键或是有趣的命令，权且作为备忘录 Commands (详细的命令指导) 设置管理员operator 设置管理员权限  &#x2F;op &lt;playername&gt;  解除管理员权限 &#x2F;deop &lt;playername&gt;           编辑服务器里的ops.jso">
+  <meta name="description" content="[TOC] Minecraft一些简单命令mc命令既可以在服务器终端输入，也可以在玩的时候输入，这里只是简略得提及一些关键或是有趣的命令，权且作为备忘录 Commands (详细的命令指导) 设置管理员operator 设置管理员权限  1&#x2F;op &lt;playername&gt;  解除管理员权限 1&#x2F;deop &lt;playername&gt;		   编辑服务器里的ops.json文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="simple-commands">
 <meta property="og:url" content="https://g-dab.gitee.io/2021/12/05/mo-yao-ke/mc-record/mc-outline/mc-commands/index.html">
 <meta property="og:site_name" content="ggdab~~">
-<meta property="og:description" content="[TOC] Minecraft一些简单命令mc命令既可以在服务器终端输入，也可以在玩的时候输入，这里只是简略得提及一些关键或是有趣的命令，权且作为备忘录 Commands (详细的命令指导) 设置管理员operator 设置管理员权限  &#x2F;op &lt;playername&gt;  解除管理员权限 &#x2F;deop &lt;playername&gt;           编辑服务器里的ops.jso">
+<meta property="og:description" content="[TOC] Minecraft一些简单命令mc命令既可以在服务器终端输入，也可以在玩的时候输入，这里只是简略得提及一些关键或是有趣的命令，权且作为备忘录 Commands (详细的命令指导) 设置管理员operator 设置管理员权限  1&#x2F;op &lt;playername&gt;  解除管理员权限 1&#x2F;deop &lt;playername&gt;		   编辑服务器里的ops.json文件">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-05T05:16:23.000Z">
 <meta property="article:modified_time" content="2021-12-19T06:20:50.312Z">
@@ -235,30 +235,17 @@
 <h2 id="设置管理员operator"><a href="#设置管理员operator" class="headerlink" title="设置管理员operator"></a>设置管理员operator</h2><ol>
 <li>设置管理员权限</li>
 </ol>
-<pre><code class="java">/op &lt;playername&gt;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/op &lt;playername&gt;</span><br></pre></td></tr></table></figure>
+
 <p>解除管理员权限</p>
-<pre><code class="java">/deop &lt;playername&gt;        
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/deop &lt;playername&gt;		</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li><p>编辑服务器里的ops.json文件</p>
 <p>之前的op命令输入后更改的就是ops.json文件，但注意修改了ops.json文件要重启服务器在能使之生效</p>
 <p>e.g.</p>
-<pre><code class="java">[
-  &#123;
-    &quot;uuid&quot;: &quot;82ad85f4-add6-4a11-81b2-2c7c634f3a4e&quot;,
-    &quot;name&quot;: &quot;Player1_name&quot;,
-    &quot;level&quot;: 4,
-    &quot;bypassesPlayerLimit&quot;: false
-  &#125;,
-  &#123;
-    &quot;uuid&quot;: &quot;9bb8bfdb-d35f-3727-b4f6-6bc51afd31fd&quot;,
-    &quot;name&quot;: &quot;Player2_name&quot;,
-    &quot;level&quot;: 4,
-    &quot;bypassesPlayerLimit&quot;: false
-  &#125;
-]
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">&quot;uuid&quot;</span>: <span class="string">&quot;82ad85f4-add6-4a11-81b2-2c7c634f3a4e&quot;</span>,</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Player1_name&quot;</span>,</span><br><span class="line">    <span class="string">&quot;level&quot;</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">&quot;bypassesPlayerLimit&quot;</span>: <span class="keyword">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">&quot;uuid&quot;</span>: <span class="string">&quot;9bb8bfdb-d35f-3727-b4f6-6bc51afd31fd&quot;</span>,</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Player2_name&quot;</span>,</span><br><span class="line">    <span class="string">&quot;level&quot;</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">&quot;bypassesPlayerLimit&quot;</span>: <span class="keyword">false</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
 <p>Java版的用户权限等级分为0~4</p>
 <p>命令方块的权限等级仅为2</p>
 <p>服务器控制台的权限等级为4。</p>
