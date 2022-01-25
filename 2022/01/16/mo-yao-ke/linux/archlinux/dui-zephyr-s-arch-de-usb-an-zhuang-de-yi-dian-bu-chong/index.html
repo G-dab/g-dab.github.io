@@ -263,15 +263,54 @@
 </blockquote>
 <p>将你的GPT分区表转化为Hybrid MBR (使用gdisk)</p>
 <p>假定U盘文件名为 /dev/sdx</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdisk /dev/sdX</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gdisk /dev/sdX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">GPT fdisk (gdisk) version 1.0.4</span><br><span class="line"></span><br><span class="line">Partition table scan:</span><br><span class="line">  MBR: protective</span><br><span class="line">  BSD: not present</span><br><span class="line">  APM: not present</span><br><span class="line">  GPT: present</span><br><span class="line"></span><br><span class="line">Found valid GPT with protective MBR; using GPT.</span><br><span class="line"></span><br><span class="line">Command (? <span class="keyword">for</span> <span class="built_in">help</span>): r</span><br><span class="line">Recovery/transformation <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): h</span><br><span class="line"></span><br><span class="line">WARNING! Hybrid MBRs are flaky and dangerous! If you decide not to use one,</span><br><span class="line">just hit the Enter key at the below prompt and your MBR partition table will</span><br><span class="line">be untouched.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">GPT <span class="token function">fdisk</span> <span class="token punctuation">(</span>gdisk<span class="token punctuation">)</span> version <span class="token number">1.0</span>.4
+
+Partition table scan:
+  MBR: protective
+  BSD: not present
+  APM: not present
+  GPT: present
+
+Found valid GPT with protective MBR<span class="token punctuation">;</span> using GPT.
+
+Command <span class="token punctuation">(</span>? <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: r
+Recovery/transformation <span class="token builtin class-name">command</span> <span class="token punctuation">(</span>? <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: h
+
+WARNING<span class="token operator">!</span> Hybrid MBRs are flaky and dangerous<span class="token operator">!</span> If you decide not to use one,
+just hit the Enter key at the below prompt and your MBR partition table will
+be untouched.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>按r进入recovery &amp; transformation菜单后可按p再次核对自己的分区情况</p>
 </blockquote>
 <p>以三个分区为例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Type from one to three GPT partition numbers, separated by spaces, to be added to the hybrid MBR, <span class="keyword">in</span> sequence: 1 2 3</span><br><span class="line">Place EFI GPT (0xEE) partition first <span class="keyword">in</span> MBR (good <span class="keyword">for</span> GRUB)? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#1 (MBR partition #1)</span></span><br><span class="line">Enter an MBR hex code (default EF): </span><br><span class="line">Set the bootable flag? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#2 (MBR partition #2)</span></span><br><span class="line">Enter an MBR hex code (default EF): </span><br><span class="line">Set the bootable flag? (Y/N): N</span><br><span class="line"></span><br><span class="line">Creating entry <span class="keyword">for</span> GPT partition <span class="comment">#3 (MBR partition #3)</span></span><br><span class="line">Enter an MBR hex code (default 83): </span><br><span class="line">Set the bootable flag? (Y/N): Y</span><br><span class="line"></span><br><span class="line">Recovery/transformation <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): x</span><br><span class="line">Expert <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): h</span><br><span class="line">Expert <span class="built_in">command</span> (? <span class="keyword">for</span> <span class="built_in">help</span>): w</span><br><span class="line"></span><br><span class="line">Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING</span><br><span class="line">PARTITIONS!!</span><br><span class="line"></span><br><span class="line">Do you want to proceed? (Y/N): Y</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+Type from one to three GPT partition numbers, separated by spaces, to be added to the hybrid MBR, <span class="token keyword">in</span> sequence: <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+Place EFI GPT <span class="token punctuation">(</span>0xEE<span class="token punctuation">)</span> partition first <span class="token keyword">in</span> MBR <span class="token punctuation">(</span>good <span class="token keyword">for</span> GRUB<span class="token punctuation">)</span>? <span class="token punctuation">(</span>Y/N<span class="token punctuation">)</span>: N
+
+Creating entry <span class="token keyword">for</span> GPT partition <span class="token comment">#1 (MBR partition #1)</span>
+Enter an MBR hex code <span class="token punctuation">(</span>default EF<span class="token punctuation">)</span>: 
+Set the bootable flag? <span class="token punctuation">(</span>Y/N<span class="token punctuation">)</span>: N
+
+Creating entry <span class="token keyword">for</span> GPT partition <span class="token comment">#2 (MBR partition #2)</span>
+Enter an MBR hex code <span class="token punctuation">(</span>default EF<span class="token punctuation">)</span>: 
+Set the bootable flag? <span class="token punctuation">(</span>Y/N<span class="token punctuation">)</span>: N
+
+Creating entry <span class="token keyword">for</span> GPT partition <span class="token comment">#3 (MBR partition #3)</span>
+Enter an MBR hex code <span class="token punctuation">(</span>default <span class="token number">83</span><span class="token punctuation">)</span>: 
+Set the bootable flag? <span class="token punctuation">(</span>Y/N<span class="token punctuation">)</span>: Y
+
+Recovery/transformation <span class="token builtin class-name">command</span> <span class="token punctuation">(</span>? <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: x
+Expert <span class="token builtin class-name">command</span> <span class="token punctuation">(</span>? <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: h
+Expert <span class="token builtin class-name">command</span> <span class="token punctuation">(</span>? <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: w
+
+Final checks complete. About to <span class="token function">write</span> GPT data. THIS WILL OVERWRITE EXISTING
+PARTITIONS<span class="token operator">!</span><span class="token operator">!</span>
+
+Do you want to proceed? <span class="token punctuation">(</span>Y/N<span class="token punctuation">)</span>: Y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>如果还有额外分区存放数据记得要加上bootable flag（The boot flag is from ancient times…）</p>
@@ -281,16 +320,17 @@
 <p>注： (不要格式化装BIOS的grub的那1M分区，也不用挂载)</p>
 </blockquote>
 <h3 id="安装grub"><a href="#安装grub" class="headerlink" title="安装grub"></a>安装grub</h3><p><strong>UEFI/GPT</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=esp  --removable --recheck</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">grub-install --target<span class="token operator">=</span>x86_64-efi --efi-directory<span class="token operator">=</span>esp  --removable --recheck<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>BIOS/MBR</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">grub-install --target=i386-pc --boot-directory /boot --removable /dev/sdX</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+grub-install --target<span class="token operator">=</span>i386-pc --boot-directory /boot --removable /dev/sdX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>MBR下安装grub里设备是 /dev/sdx    后面没有数字</p>
 </blockquote>
 <p>生成grub配置即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grub-mkconfig</span> -o /boot/grub/grub.cfg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
     </div>
 
     
