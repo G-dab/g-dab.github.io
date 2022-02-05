@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"g-dab.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="说在前面。。。 Shell shell是一种用C写的程序，之所以称为shell（壳），是因为它就像罩在内核外的壳，用来处理用户通过键盘输入的命令，与内核操作系统进行交互。它又被称为终端，命令行   shell 的种类有很多，windows  有powershell,cmd,  linux有 bash, zsh  查看当前系统有哪些shell 1cat &#x2F;etc&#x2F;shells 查看当前使用的shel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oh-my-zsh 配置 第一版">
+<meta property="og:url" content="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-1/index.html">
+<meta property="og:site_name" content="ggdab~~">
+<meta property="og:description" content="说在前面。。。 Shell shell是一种用C写的程序，之所以称为shell（壳），是因为它就像罩在内核外的壳，用来处理用户通过键盘输入的命令，与内核操作系统进行交互。它又被称为终端，命令行   shell 的种类有很多，windows  有powershell,cmd,  linux有 bash, zsh  查看当前系统有哪些shell 1cat &#x2F;etc&#x2F;shells 查看当前使用的shel">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-15T16:56:00.000Z">
+<meta property="article:modified_time" content="2022-02-05T12:59:36.143Z">
+<meta property="article:author" content="G.dab">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>oh-my-zsh 配置 第一版 | ggdab~~</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ggdab~~</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-霍格沃兹">
+
+    <a href="/" rel="section"><i class="fas fa-hat-wizard fa-fw"></i>霍格沃兹</a>
+
+  </li>
+        <li class="menu-item menu-item-对角巷">
+
+    <a href="/alley/" rel="section"><i class="fas fa-ghost fa-fw"></i>对角巷</a>
+
+  </li>
+        <li class="menu-item menu-item-古灵阁(caution!)">
+
+    <a href="/tags/" rel="section"><i class="fas fa-dragon fa-fw"></i>古灵阁(caution!)</a>
+
+  </li>
+        <li class="menu-item menu-item-魔药课">
+
+    <a href="/categories/" rel="section"><i class="fas fa-magic fa-fw"></i>魔药课</a>
+
+  </li>
+        <li class="menu-item menu-item-魁地奇-quidditch">
+
+    <a href="/archives/" rel="section"><i class="fas fa-quidditch fa-fw"></i>魁地奇 quidditch</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.gitee.io/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          oh-my-zsh 配置 第一版
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-16 00:56:00" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-05 20:59:36" itemprop="dateModified" datetime="2022-02-05T20:59:36+08:00">2022-02-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>说在前面。。。</p>
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><blockquote>
+<p>shell是一种用C写的程序，之所以称为shell（壳），是因为它就像罩在内核外的壳，用来处理用户通过键盘输入的命令，与内核操作系统进行交互。它又被称为终端，命令行</p>
+</blockquote>
+<blockquote>
+<p>shell 的种类有很多，windows  有powershell,cmd,  linux有 bash, zsh</p>
+</blockquote>
+<p>查看当前系统有哪些shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure>
+<p>查看当前使用的shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="zsh-和-oh-my-zsh"><a href="#zsh-和-oh-my-zsh" class="headerlink" title="zsh 和 oh-my-zsh"></a>zsh 和 oh-my-zsh</h2><h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><blockquote>
+<p>可以兼容 bash，并且提供了很多高效的改进。它是Linux里最庞大的一种shell，它有84个内部命令，也提供了更为强大的功能</p>
+</blockquote>
+<h4 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh my zsh"></a>oh my zsh</h4><p>wiki <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki">https://github.com/ohmyzsh/ohmyzsh/wiki</a></p>
+<p>主页 <a target="_blank" rel="noopener" href="https://ohmyz.sh/">https://ohmyz.sh/</a></p>
+<p>github <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
+<blockquote>
+<p>Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout…</p>
+<h1 id="“Oh-My-ZSH-”"><a href="#“Oh-My-ZSH-”" class="headerlink" title="“Oh My ZSH!”"></a>“Oh My ZSH!”</h1></blockquote>
+<h1 id="安装和配置zsh-oh-my-zsh"><a href="#安装和配置zsh-oh-my-zsh" class="headerlink" title="安装和配置zsh + oh-my-zsh"></a>安装和配置zsh + oh-my-zsh</h1><p>官方文档 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki">https://github.com/ohmyzsh/ohmyzsh/wiki</a></p>
+<p>要安装oh my zsh 首先需要安装 zsh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install zsh</span><br></pre></td></tr></table></figure>
+
+<p>使用chsh命令 切换shell 为zsh （-s选项只修改当前用户的shell）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh   </span><br></pre></td></tr></table></figure>
+
+<p>记住要重启（或者ctrl+d 退出bash登录，再重新登陆）</p>
+<p>第一次启动会让你选择是否创建配置文件.zshrc</p>
+<p>不用管，反正之后用on-my-zsh的配置</p>
+<p><strong>安装git</strong></p>
+<p><strong>安装oh-my-zsh</strong>（选一种）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
+
+<p>打开配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p><strong>更改主题</strong></p>
+<p>官方Theme全介绍 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">&quot;你想要的主题&quot;</span></span><br></pre></td></tr></table></figure>
+<p>更新配置：（或再启动zsh）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>家目录下的~/.oh-my-zsh/plugins存放oh-my-zsh的自带主题</p>
+<blockquote>
+<p>theme设置为random后每次登录就会更新（也即重新启动配置.zshrc）</p>
+<p>tips:  使用source ~/.zshrc来切换随机主题</p>
+</blockquote>
+<p><strong>oh-my-zsh更新</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，当oh-my-zsh有更新时，都会给你提示。如果希望让oh-my-zsh自动更新，在~/.zshrc 中添加下面这句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISABLE_UPDATE_PROMPT=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="插件选择"><a href="#插件选择" class="headerlink" title="插件选择"></a>插件选择</h1><p>浅尝几个小插件，光是它们就能完全颠覆你的命令输入方式</p>
+<h3 id="语法高亮插件"><a href="#语法高亮插件" class="headerlink" title="语法高亮插件"></a><strong>语法高亮插件</strong></h3><p>1、下载zsh-syntax-highlighting插件</p>
+<blockquote>
+<p>用git ssh协议感觉下载的比https快（其实都很慢）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins</span><br><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
+
+<p>2、在.zshrc中增加配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>3、读取配置及时生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动补全插件"><a href="#自动补全插件" class="headerlink" title="自动补全插件"></a>自动补全插件</h3><p>1、下载zsh-autosuggestions插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-autosuggestions <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>2、在.zshrc中增加配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">		zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>3、读取配置及时生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速输入sudo"><a href="#快速输入sudo" class="headerlink" title="快速输入sudo"></a>快速输入sudo</h3><p>如果使用Bash，在<code>~/.bashrc</code>中加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind &#x27;&quot;\e\e&quot;:&quot;\C-asudo \C-e&quot;&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>如果使用Zsh，在<code>~/.zshrc</code>中加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bindkey -s &#x27;\e\e&#x27; &#x27;\C-asudo \C-e&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>让配置文件生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>生效后，只需要连续按两下ESC键，即可快速将sudo添加到命令最前端。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-2/" rel="prev" title="oh-my-zsh 配置 第二版">
+      <i class="fa fa-chevron-left"></i> oh-my-zsh 配置 第二版
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/16/mo-yao-ke/linux/notes/x-window/" rel="next" title="X Window">
+      X Window <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell"><span class="nav-number">1.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zsh-%E5%92%8C-oh-my-zsh"><span class="nav-number">2.</span> <span class="nav-text">zsh 和 oh-my-zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zsh"><span class="nav-number">2.0.1.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">2.0.2.</span> <span class="nav-text">oh my zsh</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%80%9COh-My-ZSH-%E2%80%9D"><span class="nav-number"></span> <span class="nav-text">“Oh My ZSH!”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEzsh-oh-my-zsh"><span class="nav-number"></span> <span class="nav-text">安装和配置zsh + oh-my-zsh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9"><span class="nav-number"></span> <span class="nav-text">插件选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6"><span class="nav-number">0.1.</span> <span class="nav-text">语法高亮插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E6%8F%92%E4%BB%B6"><span class="nav-number">0.2.</span> <span class="nav-text">自动补全插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5sudo"><span class="nav-number">0.3.</span> <span class="nav-text">快速输入sudo</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="G.dab"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">G.dab</p>
+  <div class="site-description" itemprop="description">空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      my friends
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://zephyrheather.github.io/" title="https:&#x2F;&#x2F;zephyrheather.github.io" rel="noopener" target="_blank">Zephyr's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ck-killer.github.io/" title="https:&#x2F;&#x2F;ck-killer.github.io" rel="noopener" target="_blank">CK'Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">G.dab</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fas fa-universal-access"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
