@@ -638,6 +638,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2021/12/05/mo-yao-ke/mc-record/mc-outline/mc-internal-implementation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/05/mo-yao-ke/mc-record/mc-outline/mc-internal-implementation/" class="post-title-link" itemprop="url">internal-implementation</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-12-05 13:16:23" itemprop="dateCreated datePublished" datetime="2021-12-05T13:16:23+08:00">2021-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-19 14:20:36" itemprop="dateModified" datetime="2021-12-19T14:20:36+08:00">2021-12-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Minecraft/" itemprop="url" rel="index"><span itemprop="name">Minecraft</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Minecraft/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[TOC]</p>
+<h1 id="Minecraft地图生成原理"><a href="#Minecraft地图生成原理" class="headerlink" title="Minecraft地图生成原理"></a>Minecraft地图生成原理</h1><h3 id="伪地图方块生成-种子"><a href="#伪地图方块生成-种子" class="headerlink" title="伪地图方块生成 种子"></a>伪地图方块生成 <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%A7%8D%E5%AD%90%EF%BC%88%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90%EF%BC%89">种子</a></h3><blockquote>
+<p>话说Minecraft的地图是如生成的呢，总不可能一次生成那么多方快，更何况这可是一个无限大的世界！！！</p>
+<p>显然只有通过根据玩家所在的位置动态地加载地图。走到哪里，生成哪里。</p>
+</blockquote>
+<p>我们新建世界的时候会需要一个种子（seed）一个种子确定一个世界。</p>
+<p>Minecraft的地图生成器是根据输入的种子，在对应生成每个坐标的的方块种类，所以只要输入的种子一样，生成的地图每个细节都完全一样</p>
+<h1 id="生物群系-生物群系-Biomes"><a href="#生物群系-生物群系-Biomes" class="headerlink" title="生物群系 生物群系  Biomes"></a>生物群系 <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Biome#Temperature">生物群系 </a> Biomes</h1><h2 id="Generation"><a href="#Generation" class="headerlink" title="Generation"></a>Generation</h2><p>Minecraft biomes are generated in layer stacks. These layers generate specific  aspects of Minecraft biomes, such as scale, rivers, varieties and biome  categories.</p>
+<p>​            </p>
+<p>minecraft中的生物群系指代在气候学和地理学上被定义为具有类似气候条件的地方，比如植物、动物和土壤生物组成的群落，也就是一个<strong>生态系统</strong></p>
+<p>基本配置</p>
+<h5 id="温度-Temperature"><a href="#温度-Temperature" class="headerlink" title="温度 Temperature"></a>温度 Temperature</h5><p>每个群系需要温度值来判断天气特征（水是否结冰，是否下雪，下雨，判断雪线）</p>
+<blockquote>
+<p>温度值 snow &lt;0.15 rain 0.15~1 dry &gt;1   （mc一个方块1*1*1）</p>
+<p>当然这都一句不同的服务器版本改变，比如香草服里设定savannas在怎样的温度下都不会下雨</p>
+<p>从海平面(Y=64)开始，海拔每增高1米，温度将会降低0.001666…(1 ⁄ 600)，海平面以下不改变</p>
+</blockquote>
+<blockquote>
+<p>生物群系的温度和降雨量值也会决定一些方块的颜色（grass, grass blocks, some leaves, vines, sugar cane）</p>
+</blockquote>
+<h5 id="Sky-and-fog"><a href="#Sky-and-fog" class="headerlink" title="Sky and fog"></a>Sky and fog</h5><p><a target="_blank" rel="noopener" href="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5e/Sky_temperature.png/revision/latest?cb=20200527061032"><img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5e/Sky_temperature.png/revision/latest/scale-to-width-down/180?cb=20200527061032" alt="img"></a></p>
+<p>Sky color from left to right: warm, temperate, cold, snowy.</p>
+<p>The sky colors are not directly determined by the temperature and  rainfall values but instead are determined by a color code. However, the sky color that is set for each biome is mostly based on the temperature values, which means that warmer biomes have brighter skies and colder  biomes have slightly purplish skies.</p>
+<h1 id="Village-and-Pillage"><a href="#Village-and-Pillage" class="headerlink" title="Village and Pillage"></a>Village and Pillage</h1><p><a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Java_Edition_guides/Village_%26_Pillage">https://minecraft.fandom.com/wiki/Java_Edition_guides/Village_%26_Pillage</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2021/12/05/mo-yao-ke/mc-record/mc-outline/mc-launcher/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -815,107 +916,6 @@
 <p>　　玫瑰丛</p>
 <p><img src="http://thumb12.jfcdns.com/2017-10/bce59dde9955f97b.png" alt="牡丹"></p>
 <p>　　牡丹</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2021/12/05/mo-yao-ke/mc-record/mc-outline/mc-internal-implementation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="G.dab">
-      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ggdab~~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/05/mo-yao-ke/mc-record/mc-outline/mc-internal-implementation/" class="post-title-link" itemprop="url">internal-implementation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-12-05 13:16:23" itemprop="dateCreated datePublished" datetime="2021-12-05T13:16:23+08:00">2021-12-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-19 14:20:36" itemprop="dateModified" datetime="2021-12-19T14:20:36+08:00">2021-12-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Minecraft/" itemprop="url" rel="index"><span itemprop="name">Minecraft</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Minecraft/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[TOC]</p>
-<h1 id="Minecraft地图生成原理"><a href="#Minecraft地图生成原理" class="headerlink" title="Minecraft地图生成原理"></a>Minecraft地图生成原理</h1><h3 id="伪地图方块生成-种子"><a href="#伪地图方块生成-种子" class="headerlink" title="伪地图方块生成 种子"></a>伪地图方块生成 <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%A7%8D%E5%AD%90%EF%BC%88%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90%EF%BC%89">种子</a></h3><blockquote>
-<p>话说Minecraft的地图是如生成的呢，总不可能一次生成那么多方快，更何况这可是一个无限大的世界！！！</p>
-<p>显然只有通过根据玩家所在的位置动态地加载地图。走到哪里，生成哪里。</p>
-</blockquote>
-<p>我们新建世界的时候会需要一个种子（seed）一个种子确定一个世界。</p>
-<p>Minecraft的地图生成器是根据输入的种子，在对应生成每个坐标的的方块种类，所以只要输入的种子一样，生成的地图每个细节都完全一样</p>
-<h1 id="生物群系-生物群系-Biomes"><a href="#生物群系-生物群系-Biomes" class="headerlink" title="生物群系 生物群系  Biomes"></a>生物群系 <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Biome#Temperature">生物群系 </a> Biomes</h1><h2 id="Generation"><a href="#Generation" class="headerlink" title="Generation"></a>Generation</h2><p>Minecraft biomes are generated in layer stacks. These layers generate specific  aspects of Minecraft biomes, such as scale, rivers, varieties and biome  categories.</p>
-<p>​            </p>
-<p>minecraft中的生物群系指代在气候学和地理学上被定义为具有类似气候条件的地方，比如植物、动物和土壤生物组成的群落，也就是一个<strong>生态系统</strong></p>
-<p>基本配置</p>
-<h5 id="温度-Temperature"><a href="#温度-Temperature" class="headerlink" title="温度 Temperature"></a>温度 Temperature</h5><p>每个群系需要温度值来判断天气特征（水是否结冰，是否下雪，下雨，判断雪线）</p>
-<blockquote>
-<p>温度值 snow &lt;0.15 rain 0.15~1 dry &gt;1   （mc一个方块1*1*1）</p>
-<p>当然这都一句不同的服务器版本改变，比如香草服里设定savannas在怎样的温度下都不会下雨</p>
-<p>从海平面(Y=64)开始，海拔每增高1米，温度将会降低0.001666…(1 ⁄ 600)，海平面以下不改变</p>
-</blockquote>
-<blockquote>
-<p>生物群系的温度和降雨量值也会决定一些方块的颜色（grass, grass blocks, some leaves, vines, sugar cane）</p>
-</blockquote>
-<h5 id="Sky-and-fog"><a href="#Sky-and-fog" class="headerlink" title="Sky and fog"></a>Sky and fog</h5><p><a target="_blank" rel="noopener" href="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5e/Sky_temperature.png/revision/latest?cb=20200527061032"><img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5e/Sky_temperature.png/revision/latest/scale-to-width-down/180?cb=20200527061032" alt="img"></a></p>
-<p>Sky color from left to right: warm, temperate, cold, snowy.</p>
-<p>The sky colors are not directly determined by the temperature and  rainfall values but instead are determined by a color code. However, the sky color that is set for each biome is mostly based on the temperature values, which means that warmer biomes have brighter skies and colder  biomes have slightly purplish skies.</p>
-<h1 id="Village-and-Pillage"><a href="#Village-and-Pillage" class="headerlink" title="Village and Pillage"></a>Village and Pillage</h1><p><a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Java_Edition_guides/Village_%26_Pillage">https://minecraft.fandom.com/wiki/Java_Edition_guides/Village_%26_Pillage</a></p>
 
       
     </div>
