@@ -260,6 +260,263 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/03/18/mo-yao-ke/linux/notes/vim-felix-felicis-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/18/mo-yao-ke/linux/notes/vim-felix-felicis-2/" class="post-title-link" itemprop="url">vim - Felix Felicis -2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-18 15:30:00" itemprop="dateCreated datePublished" datetime="2022-03-18T15:30:00+08:00">2022-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-19 15:34:51" itemprop="dateModified" datetime="2022-03-19T15:34:51+08:00">2022-03-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[TOC]</p>
+<blockquote>
+<p>In this part, I will mainly talk about vim plugs that I highly recommended, but know that they’re just my recommendation, It’s highly favored if you would like to try by your own</p>
+</blockquote>
+<p>探索各种各样的vim插件和它们的用法是一件极其美妙的事~</p>
+<p>这里粘一些可以参考的地方哦</p>
+<p><a target="_blank" rel="noopener" href="https://www.vim.org/">vim.org</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/vim">github vim topic</a> 我推荐的也基本都是排头行的插件，是获得了大家的认可的 </p>
+<p>vim awesome</p>
+<h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><p>如何让自己的vim显得美观，特别？</p>
+<p>你肯定得需要一款自己喜欢的vim主题！可以参考</p>
+<p><a target="_blank" rel="noopener" href="https://vimjc.com/10-light-vim-color-scheme.html">2017年排名前10的暗黑简约型vim配色方案</a></p>
+<p><a target="_blank" rel="noopener" href="https://vimjc.com/vim-color-schemes.html">15个著名的Vim配色方案整理</a></p>
+<p>我用的是 <a target="_blank" rel="noopener" href="https://github.com/connorholyday/vim-snazzy">snazzy </a>(致敬 星际玩家 TheCW)</p>
+<p>还可以加一个状态栏的插件，让自己状态栏更多彩~~</p>
+<p>我用的是airline 确实也不辍，自定义后更具特色</p>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><h2 id="NERTree"><a href="#NERTree" class="headerlink" title="NERTree"></a>NERTree</h2><p><a target="_blank" rel="noopener" href="https://github.com/preservim/nerdtree">NERDTree</a> is a wonderful file system explorer!</p>
+<h1 id="Code-Writing"><a href="#Code-Writing" class="headerlink" title="Code Writing"></a>Code Writing</h1><p>为了流畅方便的使用vim书写代码，这里我把自己的经历跟大家分享一下</p>
+<h2 id="YouCompleteMe"><a href="#YouCompleteMe" class="headerlink" title="YouCompleteMe"></a>YouCompleteMe</h2><p>拥有自动补全是效率写代码的第一步，其中YouCompleteMe是整合度度很高且无需太多配置的一款插件，可主要还是由于github的网速问题很难下，不过换源后可以方便一些</p>
+<p>YCM 这个号称史上最难下的vim插件，为此我折腾了尽好几天，从刚开始的换网，到..再到直接totally manually install(referred to <a target="_blank" rel="noopener" href="https://github.com/ycm-core/YouCompleteMe/wiki/Full-Installation-Guide">https://github.com/ycm-core/YouCompleteMe/wiki/Full-Installation-Guide</a>)</p>
+<p>在了解了它的组成部分后，这里给大家一个简便有效的安装方法：<br>先从gitee镜像里下插件部分</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https://gitee.com/HangbinZheng/YouCompleteMe.git  ~/.vim/pack/vendor/start/YouCompleteMe</span><br></pre></td></tr></table></figure>
+
+<p>git submodule add 后应该要执行 python3 install.py</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/vendor/start/YouCompleteMe (master) <span class="comment"># python3 install.py                     </span></span><br><span class="line">File /root/.vim/pack/vendor/start/YouCompleteMe/third_party/ycmd/build.py does not exist; you probably forgot to run:</span><br><span class="line">        git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
+
+<p>但会发现这个项目里面也有submodule没包含，这里要包含的库有很多，而且源都是在github上，不过都放在third_party目录下，为方便我把包含好submodule库的third_party目录放在gitee仓库下，有需要的朋友可以下下来，只要替换自己的third_party目录就可以</p>
+<p>you may find them here <a target="_blank" rel="noopener" href="https://gitee.com/g-dab/vim-plugs-mirror">https://gitee.com/g-dab/vim-plugs-mirror</a></p>
+<p>接下来就可以顺利执行 <code>python3 install.py</code></p>
+<p>（如果用Ubuntu的朋友可能还需装一下python的headers: python3-dev）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/03/18/mo-yao-ke/linux/notes/vim-felix-felicis-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/18/mo-yao-ke/linux/notes/vim-felix-felicis-1/" class="post-title-link" itemprop="url">vim - Felix Felicis -1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-18 15:30:00" itemprop="dateCreated datePublished" datetime="2022-03-18T15:30:00+08:00">2022-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-19 15:34:55" itemprop="dateModified" datetime="2022-03-19T15:34:55+08:00">2022-03-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[TOC]</p>
+<blockquote>
+<p>要想真正爱上vim的快捷与方便，最重要的一环就是构建好属于自己的vim配置。vim拥有庞大的社区和超多的插件，所以在这里我只是梳理了一下vim的一些基本配置建议，以方便各位同学入门</p>
+</blockquote>
+<p>Learning Sites：</p>
+<p><a target="_blank" rel="noopener" href="https://vimjc.com/">https://vimjc.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/learn-vim">https://www.zhihu.com/column/learn-vim</a></p>
+<p>参考 与 鸣谢：</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">https://www.ruanyifeng.com/blog/2018/09/vimrc.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://taoshu.in/vim/vimrc.html#google_vignette">https://taoshu.in/vim/vimrc.html#google_vignette</a></p>
+<h2 id="配置文件夹"><a href="#配置文件夹" class="headerlink" title="配置文件夹"></a>配置文件夹</h2><p>NeoVim和 vim 的配置几乎可以完全等效</p>
+<p>首先在家目录下创建 <code>~/.vim</code>文件夹，这是存放vim所有配置的地方</p>
+<blockquote>
+<p>在 NeoVim 的 默认配置文件是 <code>~/.config/nvim/init.vim</code> 相当于<code>~/.vim/vimrc</code></p>
+</blockquote>
+<ul>
+<li><strong>autoload/</strong> 插件公共代码，vim 在<strong>执行 viml 的时候</strong>自动载入。<code>:h autoload</code></li>
+<li><strong>colors/</strong> 配色主题定义文件。<code>:h colorscheme</code></li>
+<li><strong>ftplugin/</strong> 专用代码，以<strong>文件类型加下划线</strong>开头，遇到对应文件自动执行。<code>:h write-filetype-plugin</code></li>
+<li><strong>plugin/</strong> 通用代码，自动执行。<code>:h write-plugin</code></li>
+<li><strong>syntax/</strong> 语法高亮定义文件。<code>:h mysyntaxfile</code></li>
+</ul>
+<h2 id="map-键盘映射"><a href="#map-键盘映射" class="headerlink" title="map 键盘映射"></a>map 键盘映射</h2><h4 id="按键映射"><a href="#按键映射" class="headerlink" title="按键映射"></a>按键映射</h4><p>查看所有的键盘映射</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:map</span><br></pre></td></tr></table></figure>
+
+<p>在vimrc里使用 <code>map 键1 键2</code> 就可以用键1代替键2</p>
+<p>不过不同模式下的映射不一样，可参考下表<img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220319144235.png"></p>
+<blockquote>
+<p>加上noremap表示不能被重新映射</p>
+</blockquote>
+<h4 id="查看按键"><a href="#查看按键" class="headerlink" title="查看按键"></a>查看按键</h4><p>查看可以映射哪些键，以及每个键的名称</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:h map-which-keys</span><br></pre></td></tr></table></figure>
+
+<h4 id="按键是否被使用"><a href="#按键是否被使用" class="headerlink" title="按键是否被使用"></a>按键是否被使用</h4><p>参考文件 “index” 可以知道哪些键没有被使用，从而使映射不会覆盖任何内建的功能。也可使用 <code>:help &#123;key&#125;^D</code> 来找出是否一个键已经用于某些命令。 ({key} 用于指定你要寻找的键，^D 是 CTRL-D)。</p>
+<h4 id="小tips："><a href="#小tips：" class="headerlink" title="小tips："></a>小tips：</h4><ul>
+<li>Esc在vim里几乎最平常用到，但在键盘上它的位置确实极其的尴尬，所以把它换成大大的caps lock键完全没问题（caps lock键几乎没什么用，需要打出大写时我们直接按Shift代替即可）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">noremap Capslock Esc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>vim的前缀键leader也是极为常用的键，默认是<code>\</code>,位置也是比较的尴尬，用<code>空格键</code>或是<code>,</code>键代替都是不错的选择</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> mapleader=<span class="string">&quot; &quot;</span></span><br><span class="line">//</span><br><span class="line"><span class="built_in">let</span> mapleader=<span class="string">&quot;,&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="let-和-set"><a href="#let-和-set" class="headerlink" title="let 和 set"></a>let 和 set</h2><p>可以查看帮助手册<code>:help set</code> 和 <code>:help let</code> 了解区别</p>
+<p>refer to <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/9990219/vim-whats-the-difference-between-let-and-set">https://stackoverflow.com/questions/9990219/vim-whats-the-difference-between-let-and-set</a></p>
+<p>let是用来给变量赋值，set是用来设置选项</p>
+<p>选项其实就是变量，所以一般set设置的选项也可以用let设置（前面要加&amp;）</p>
+<p>vim里有大量的选项和”开关”,</p>
+<p>可以通过<code>：set all</code>查看，希望大家自己去查阅探索~</p>
+<h2 id="插件管理（git）"><a href="#插件管理（git）" class="headerlink" title="插件管理（git）"></a>插件管理（git）</h2><p>查看所有的插件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> runtimepath</span><br></pre></td></tr></table></figure>
+
+<p>插件一般放在 <code>autoload</code> 和 <code>plugin</code> 目录下</p>
+<p>vim的插件管理可以使用<a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim">vundle</a> , <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a> , <a target="_blank" rel="noopener" href="https://github.com/Shougo/dein.vim">dein</a> ，它们的功能基本一致，就是从github上git clone 相关文件放到配置文件里 ,所以直接手动git clone也是完全可以的</p>
+<blockquote>
+<p>以<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a>为例，在.vim文件夹下创建autoload文件夹，之后把官网里的plug.vim放到里面就好了</p>
+</blockquote>
+<hr>
+<p>那么这里就介绍一下用git管理插件，而非第三方插件管理器的方法（这样可以自己选定镜像仓库地址，加快安装速度，which is indeed essential）</p>
+<blockquote>
+<p>我们把.vim目录作为git仓库，之后实际上就是把第三方插件作为submodule库内嵌到我们的.vim项目里，这样既可以和第三方插件管理器一样把它们和我们其他配置分离，而且更加的简便，直接使用其他镜像源也更方便（我尝试更改vim-plug的镜像源但失败了）</p>
+</blockquote>
+<p>如果插件需要在 vim 启动的时候加载，就放到 <code>~/.vim/pack/*/start/</code> 目录。这里的 <code>*</code> 可以是任意目录名，这里就以 <code>vendor</code>为例。</p>
+<blockquote>
+<p>想在需要的时候加载插件，那就放到 <code>~/.vim/pack/*/opt/</code> 目录，在需要的时候运行 <code>packadd name</code> 就可以加载了。</p>
+</blockquote>
+<p>在.vim目录里创建git仓库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.vim</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>接下来，把指定仓库git到目标文件夹下创建的同名目录下即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加插件 </span></span><br><span class="line">git submodule add https://github.com/lvht/mru pack/vendor/start/mru</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新指定插件</span></span><br><span class="line">git submodule update --init --remote pack/vendor/start/mru</span><br><span class="line"><span class="comment"># 更新所有插件</span></span><br><span class="line">git submodule update --init --remote</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除插件</span></span><br><span class="line">git rm pack/vendor/start/mru</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复刚才删除的插件，此法可以用于临时禁用插件</span></span><br><span class="line">git reset HEAD</span><br><span class="line">git checkout .gitmodules</span><br><span class="line">git submodule update --init pack/vendor/start/mru</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/02/05/mo-yao-ke/wsl/p-c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -974,294 +1231,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="G.dab">
-      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ggdab~~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-1/" class="post-title-link" itemprop="url">oh-my-zsh 配置 第一版</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-01-16 00:56:00" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-05 20:59:36" itemprop="dateModified" datetime="2022-02-05T20:59:36+08:00">2022-02-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>说在前面。。。</p>
-<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><blockquote>
-<p>shell是一种用C写的程序，之所以称为shell（壳），是因为它就像罩在内核外的壳，用来处理用户通过键盘输入的命令，与内核操作系统进行交互。它又被称为终端，命令行</p>
-</blockquote>
-<blockquote>
-<p>shell 的种类有很多，windows  有powershell,cmd,  linux有 bash, zsh</p>
-</blockquote>
-<p>查看当前系统有哪些shell</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure>
-<p>查看当前使用的shell</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="zsh-和-oh-my-zsh"><a href="#zsh-和-oh-my-zsh" class="headerlink" title="zsh 和 oh-my-zsh"></a>zsh 和 oh-my-zsh</h2><h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><blockquote>
-<p>可以兼容 bash，并且提供了很多高效的改进。它是Linux里最庞大的一种shell，它有84个内部命令，也提供了更为强大的功能</p>
-</blockquote>
-<h4 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh my zsh"></a>oh my zsh</h4><p>wiki <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki">https://github.com/ohmyzsh/ohmyzsh/wiki</a></p>
-<p>主页 <a target="_blank" rel="noopener" href="https://ohmyz.sh/">https://ohmyz.sh/</a></p>
-<p>github <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
-<blockquote>
-<p>Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout…</p>
-<h1 id="“Oh-My-ZSH-”"><a href="#“Oh-My-ZSH-”" class="headerlink" title="“Oh My ZSH!”"></a>“Oh My ZSH!”</h1></blockquote>
-<h1 id="安装和配置zsh-oh-my-zsh"><a href="#安装和配置zsh-oh-my-zsh" class="headerlink" title="安装和配置zsh + oh-my-zsh"></a>安装和配置zsh + oh-my-zsh</h1><p>官方文档 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki">https://github.com/ohmyzsh/ohmyzsh/wiki</a></p>
-<p>要安装oh my zsh 首先需要安装 zsh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install zsh</span><br></pre></td></tr></table></figure>
-
-<p>使用chsh命令 切换shell 为zsh （-s选项只修改当前用户的shell）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh   </span><br></pre></td></tr></table></figure>
-
-<p>记住要重启（或者ctrl+d 退出bash登录，再重新登陆）</p>
-<p>第一次启动会让你选择是否创建配置文件.zshrc</p>
-<p>不用管，反正之后用on-my-zsh的配置</p>
-<p><strong>安装git</strong></p>
-<p><strong>安装oh-my-zsh</strong>（选一种）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
-
-<p>打开配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<p><strong>更改主题</strong></p>
-<p>官方Theme全介绍 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">&quot;你想要的主题&quot;</span></span><br></pre></td></tr></table></figure>
-<p>更新配置：（或再启动zsh）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-<p>家目录下的~/.oh-my-zsh/plugins存放oh-my-zsh的自带主题</p>
-<blockquote>
-<p>theme设置为random后每次登录就会更新（也即重新启动配置.zshrc）</p>
-<p>tips:  使用source ~/.zshrc来切换随机主题</p>
-</blockquote>
-<p><strong>oh-my-zsh更新</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure>
-
-<p>默认情况下，当oh-my-zsh有更新时，都会给你提示。如果希望让oh-my-zsh自动更新，在~/.zshrc 中添加下面这句</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISABLE_UPDATE_PROMPT=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="插件选择"><a href="#插件选择" class="headerlink" title="插件选择"></a>插件选择</h1><p>浅尝几个小插件，光是它们就能完全颠覆你的命令输入方式</p>
-<h3 id="语法高亮插件"><a href="#语法高亮插件" class="headerlink" title="语法高亮插件"></a><strong>语法高亮插件</strong></h3><p>1、下载zsh-syntax-highlighting插件</p>
-<blockquote>
-<p>用git ssh协议感觉下载的比https快（其实都很慢）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins</span><br><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
-
-<p>2、在.zshrc中增加配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>3、读取配置及时生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<h3 id="自动补全插件"><a href="#自动补全插件" class="headerlink" title="自动补全插件"></a>自动补全插件</h3><p>1、下载zsh-autosuggestions插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-autosuggestions <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-
-<p>2、在.zshrc中增加配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">		zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>3、读取配置及时生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<h3 id="快速输入sudo"><a href="#快速输入sudo" class="headerlink" title="快速输入sudo"></a>快速输入sudo</h3><p>如果使用Bash，在<code>~/.bashrc</code>中加入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind &#x27;&quot;\e\e&quot;:&quot;\C-asudo \C-e&quot;&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>如果使用Zsh，在<code>~/.zshrc</code>中加入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bindkey -s &#x27;\e\e&#x27; &#x27;\C-asudo \C-e&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>让配置文件生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<p>生效后，只需要连续按两下ESC键，即可快速将sudo添加到命令最前端。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="G.dab">
-      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ggdab~~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-2/" class="post-title-link" itemprop="url">oh-my-zsh 配置 第二版</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-01-16 00:56:00" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-05 21:00:38" itemprop="dateModified" datetime="2022-02-05T21:00:38+08:00">2022-02-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://ohmyz.sh/#install">oh-my-zsh官网</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">oh-my-zsh github</a></p>
-<p>这里摘录几个安装oh-my-zsh时我遇到问题和解决方案</p>
-<blockquote>
-<ol>
-<li><p>使用git clone github上实在对网络要求高，而且很 慢 很 慢。。。</p>
-</li>
-<li><p>每次配置只对单个用户有作用</p>
-</li>
-<li><p>插件安装一条一条命令输实在boring</p>
-<p>。。。</p>
-</li>
-</ol>
-</blockquote>
-<h2 id="github网速问题"><a href="#github网速问题" class="headerlink" title="github网速问题"></a>github网速问题</h2><p>安装方式 （curl 为例）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>简单说一下官网上安装命令的含义：把github仓库里的install.sh脚本执行，（其中我们在下载中屏幕上看到的内容就是install.sh上的内容，定向到屏幕上了）</p>
-</blockquote>
-<p>现在若直接在oh-my-zsh 的github上下载好zip文件，之后就再不需要联网了:-）,当然如果github连不上，可以到gitee上找<a target="_blank" rel="noopener" href="https://gitee.com/mirrors/oh-my-zsh">镜像站</a></p>
-<blockquote>
-<p>大家可以打开install.sh看看里面都干了什么：</p>
-<ol>
-<li>检测有没有装git, $SHELL是不是zsh，设置显示的logo, 颜色 </li>
-<li>各种变量的配置</li>
-<li> 在家目录下创建.oh-my-zsh文件夹作为git仓库，把配置文件clone到里面</li>
-<li>把各种配置写入你的.zshrc</li>
-</ol>
-</blockquote>
-<p>有了zip文件，</p>
-<ol>
-<li><p>把解压得到的master分支下文件夹重命名为.oh-my-zsh并放到家目录下</p>
-</li>
-<li><p>把.oh-my-zsh/templates/zshrc.zsh-template这个文件复制到家目录下兵重命名为新的.zshrc配置文件（若原有.zshrc配置文件可以备份）</p>
-</li>
-</ol>
-<p>参考 <a target="_blank" rel="noopener" href="https://gitee.com/mirrors/oh-my-zsh#manual-installation">https://gitee.com/mirrors/oh-my-zsh#manual-installation</a></p>
-<h2 id="编写shell脚本实现“流水线”"><a href="#编写shell脚本实现“流水线”" class="headerlink" title="编写shell脚本实现“流水线”"></a>编写shell脚本实现“流水线”</h2><p>第一次配置oh-my-zsh会感觉很新奇，但之后可不能再像之前一样一步一步的配置了，所以写一个sh脚本实现自动化配置是很好的选择</p>
-<h2 id="问题集合"><a href="#问题集合" class="headerlink" title="问题集合"></a>问题集合</h2><h5 id="问题1：-权限问题"><a href="#问题1：-权限问题" class="headerlink" title="问题1： 权限问题"></a>问题1： 权限问题</h5><p>普通用户安装oh-my-zsh，千万别用 sudo 执行，不然它就把.zshrc放/root下了</p>
-<h5 id=""><a href="#" class="headerlink" title=""></a></h5>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1328,7 +1301,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1339,7 +1312,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1369,10 +1342,10 @@
       </div>
 
       <div id="music163player">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1842927461&auto=1&height=32"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=5276811&auto=1&height=66"></iframe>
         </iframe>
       </div>
-      
+
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

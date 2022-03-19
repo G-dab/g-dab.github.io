@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"g-dab.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="[TOC]  要想真正爱上vim的快捷与方便，最重要的一环就是构建好属于自己的vim配置。vim拥有庞大的社区和超多的插件，所以在这里我只是梳理了一下vim的一些基本配置建议，以方便各位同学入门  Learning Sites： https:&#x2F;&#x2F;vimjc.com&#x2F; https:&#x2F;&#x2F;www.zhihu.com&#x2F;column&#x2F;learn-vim 参考 与 鸣谢： https:&#x2F;&#x2F;www.ruanyi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim - Felix Felicis -1">
+<meta property="og:url" content="https://g-dab.github.io/2022/03/18/mo-yao-ke/linux/notes/vim-felix-felicis-1/index.html">
+<meta property="og:site_name" content="ggdab~~">
+<meta property="og:description" content="[TOC]  要想真正爱上vim的快捷与方便，最重要的一环就是构建好属于自己的vim配置。vim拥有庞大的社区和超多的插件，所以在这里我只是梳理了一下vim的一些基本配置建议，以方便各位同学入门  Learning Sites： https:&#x2F;&#x2F;vimjc.com&#x2F; https:&#x2F;&#x2F;www.zhihu.com&#x2F;column&#x2F;learn-vim 参考 与 鸣谢： https:&#x2F;&#x2F;www.ruanyi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/g-dab/image-blog/raw/master/img/20220319144235.png">
+<meta property="article:published_time" content="2022-03-18T07:30:00.000Z">
+<meta property="article:modified_time" content="2022-03-19T07:34:55.450Z">
+<meta property="article:author" content="G.dab">
+<meta property="article:tag" content="Potions Classes">
+<meta property="article:tag" content="Felix Felicis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/g-dab/image-blog/raw/master/img/20220319144235.png">
+
+<link rel="canonical" href="https://g-dab.github.io/2022/03/18/mo-yao-ke/linux/notes/vim-felix-felicis-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>vim - Felix Felicis -1 | ggdab~~</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ggdab~~</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-霍格沃兹">
+
+    <a href="/" rel="section"><i class="fas fa-hat-wizard fa-fw"></i>霍格沃兹</a>
+
+  </li>
+        <li class="menu-item menu-item-对角巷">
+
+    <a href="/alley/" rel="section"><i class="fas fa-ghost fa-fw"></i>对角巷</a>
+
+  </li>
+        <li class="menu-item menu-item-古灵阁(caution!)">
+
+    <a href="/tags/" rel="section"><i class="fas fa-dragon fa-fw"></i>古灵阁(caution!)</a>
+
+  </li>
+        <li class="menu-item menu-item-魔药课">
+
+    <a href="/categories/" rel="section"><i class="fas fa-magic fa-fw"></i>魔药课</a>
+
+  </li>
+        <li class="menu-item menu-item-魁地奇-quidditch">
+
+    <a href="/archives/" rel="section"><i class="fas fa-quidditch fa-fw"></i>魁地奇 quidditch</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/03/18/mo-yao-ke/linux/notes/vim-felix-felicis-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vim - Felix Felicis -1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-18 15:30:00" itemprop="dateCreated datePublished" datetime="2022-03-18T15:30:00+08:00">2022-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-19 15:34:55" itemprop="dateModified" datetime="2022-03-19T15:34:55+08:00">2022-03-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>[TOC]</p>
+<blockquote>
+<p>要想真正爱上vim的快捷与方便，最重要的一环就是构建好属于自己的vim配置。vim拥有庞大的社区和超多的插件，所以在这里我只是梳理了一下vim的一些基本配置建议，以方便各位同学入门</p>
+</blockquote>
+<p>Learning Sites：</p>
+<p><a target="_blank" rel="noopener" href="https://vimjc.com/">https://vimjc.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/learn-vim">https://www.zhihu.com/column/learn-vim</a></p>
+<p>参考 与 鸣谢：</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">https://www.ruanyifeng.com/blog/2018/09/vimrc.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://taoshu.in/vim/vimrc.html#google_vignette">https://taoshu.in/vim/vimrc.html#google_vignette</a></p>
+<h2 id="配置文件夹"><a href="#配置文件夹" class="headerlink" title="配置文件夹"></a>配置文件夹</h2><p>NeoVim和 vim 的配置几乎可以完全等效</p>
+<p>首先在家目录下创建 <code>~/.vim</code>文件夹，这是存放vim所有配置的地方</p>
+<blockquote>
+<p>在 NeoVim 的 默认配置文件是 <code>~/.config/nvim/init.vim</code> 相当于<code>~/.vim/vimrc</code></p>
+</blockquote>
+<ul>
+<li><strong>autoload/</strong> 插件公共代码，vim 在<strong>执行 viml 的时候</strong>自动载入。<code>:h autoload</code></li>
+<li><strong>colors/</strong> 配色主题定义文件。<code>:h colorscheme</code></li>
+<li><strong>ftplugin/</strong> 专用代码，以<strong>文件类型加下划线</strong>开头，遇到对应文件自动执行。<code>:h write-filetype-plugin</code></li>
+<li><strong>plugin/</strong> 通用代码，自动执行。<code>:h write-plugin</code></li>
+<li><strong>syntax/</strong> 语法高亮定义文件。<code>:h mysyntaxfile</code></li>
+</ul>
+<h2 id="map-键盘映射"><a href="#map-键盘映射" class="headerlink" title="map 键盘映射"></a>map 键盘映射</h2><h4 id="按键映射"><a href="#按键映射" class="headerlink" title="按键映射"></a>按键映射</h4><p>查看所有的键盘映射</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:map</span><br></pre></td></tr></table></figure>
+
+<p>在vimrc里使用 <code>map 键1 键2</code> 就可以用键1代替键2</p>
+<p>不过不同模式下的映射不一样，可参考下表<img src="https://gitee.com/g-dab/image-blog/raw/master/img/20220319144235.png"></p>
+<blockquote>
+<p>加上noremap表示不能被重新映射</p>
+</blockquote>
+<h4 id="查看按键"><a href="#查看按键" class="headerlink" title="查看按键"></a>查看按键</h4><p>查看可以映射哪些键，以及每个键的名称</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:h map-which-keys</span><br></pre></td></tr></table></figure>
+
+<h4 id="按键是否被使用"><a href="#按键是否被使用" class="headerlink" title="按键是否被使用"></a>按键是否被使用</h4><p>参考文件 “index” 可以知道哪些键没有被使用，从而使映射不会覆盖任何内建的功能。也可使用 <code>:help &#123;key&#125;^D</code> 来找出是否一个键已经用于某些命令。 ({key} 用于指定你要寻找的键，^D 是 CTRL-D)。</p>
+<h4 id="小tips："><a href="#小tips：" class="headerlink" title="小tips："></a>小tips：</h4><ul>
+<li>Esc在vim里几乎最平常用到，但在键盘上它的位置确实极其的尴尬，所以把它换成大大的caps lock键完全没问题（caps lock键几乎没什么用，需要打出大写时我们直接按Shift代替即可）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">noremap Capslock Esc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>vim的前缀键leader也是极为常用的键，默认是<code>\</code>,位置也是比较的尴尬，用<code>空格键</code>或是<code>,</code>键代替都是不错的选择</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> mapleader=<span class="string">&quot; &quot;</span></span><br><span class="line">//</span><br><span class="line"><span class="built_in">let</span> mapleader=<span class="string">&quot;,&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="let-和-set"><a href="#let-和-set" class="headerlink" title="let 和 set"></a>let 和 set</h2><p>可以查看帮助手册<code>:help set</code> 和 <code>:help let</code> 了解区别</p>
+<p>refer to <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/9990219/vim-whats-the-difference-between-let-and-set">https://stackoverflow.com/questions/9990219/vim-whats-the-difference-between-let-and-set</a></p>
+<p>let是用来给变量赋值，set是用来设置选项</p>
+<p>选项其实就是变量，所以一般set设置的选项也可以用let设置（前面要加&amp;）</p>
+<p>vim里有大量的选项和”开关”,</p>
+<p>可以通过<code>：set all</code>查看，希望大家自己去查阅探索~</p>
+<h2 id="插件管理（git）"><a href="#插件管理（git）" class="headerlink" title="插件管理（git）"></a>插件管理（git）</h2><p>查看所有的插件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> runtimepath</span><br></pre></td></tr></table></figure>
+
+<p>插件一般放在 <code>autoload</code> 和 <code>plugin</code> 目录下</p>
+<p>vim的插件管理可以使用<a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim">vundle</a> , <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a> , <a target="_blank" rel="noopener" href="https://github.com/Shougo/dein.vim">dein</a> ，它们的功能基本一致，就是从github上git clone 相关文件放到配置文件里 ,所以直接手动git clone也是完全可以的</p>
+<blockquote>
+<p>以<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a>为例，在.vim文件夹下创建autoload文件夹，之后把官网里的plug.vim放到里面就好了</p>
+</blockquote>
+<hr>
+<p>那么这里就介绍一下用git管理插件，而非第三方插件管理器的方法（这样可以自己选定镜像仓库地址，加快安装速度，which is indeed essential）</p>
+<blockquote>
+<p>我们把.vim目录作为git仓库，之后实际上就是把第三方插件作为submodule库内嵌到我们的.vim项目里，这样既可以和第三方插件管理器一样把它们和我们其他配置分离，而且更加的简便，直接使用其他镜像源也更方便（我尝试更改vim-plug的镜像源但失败了）</p>
+</blockquote>
+<p>如果插件需要在 vim 启动的时候加载，就放到 <code>~/.vim/pack/*/start/</code> 目录。这里的 <code>*</code> 可以是任意目录名，这里就以 <code>vendor</code>为例。</p>
+<blockquote>
+<p>想在需要的时候加载插件，那就放到 <code>~/.vim/pack/*/opt/</code> 目录，在需要的时候运行 <code>packadd name</code> 就可以加载了。</p>
+</blockquote>
+<p>在.vim目录里创建git仓库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.vim</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>接下来，把指定仓库git到目标文件夹下创建的同名目录下即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加插件 </span></span><br><span class="line">git submodule add https://github.com/lvht/mru pack/vendor/start/mru</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新指定插件</span></span><br><span class="line">git submodule update --init --remote pack/vendor/start/mru</span><br><span class="line"><span class="comment"># 更新所有插件</span></span><br><span class="line">git submodule update --init --remote</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除插件</span></span><br><span class="line">git rm pack/vendor/start/mru</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复刚才删除的插件，此法可以用于临时禁用插件</span></span><br><span class="line">git reset HEAD</span><br><span class="line">git checkout .gitmodules</span><br><span class="line">git submodule update --init pack/vendor/start/mru</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Potions-Classes/" rel="tag"># Potions Classes</a>
+              <a href="/tags/Felix-Felicis/" rel="tag"># Felix Felicis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/12/some-words-from-the-sorting-hat/" rel="prev" title="Some words from the SORTING HAT -1">
+      <i class="fa fa-chevron-left"></i> Some words from the SORTING HAT -1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/18/mo-yao-ke/linux/notes/vim-felix-felicis-2/" rel="next" title="vim - Felix Felicis -2">
+      vim - Felix Felicis -2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  
+  <div class="comments">
+  <script src="https://utteranc.es/client.js" repo="g-dab/g-dab.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+  </div>
+  
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.</span> <span class="nav-text">配置文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84"><span class="nav-number">2.</span> <span class="nav-text">map 键盘映射</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E9%94%AE%E6%98%A0%E5%B0%84"><span class="nav-number">2.0.1.</span> <span class="nav-text">按键映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%8C%89%E9%94%AE"><span class="nav-number">2.0.2.</span> <span class="nav-text">查看按键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E9%94%AE%E6%98%AF%E5%90%A6%E8%A2%AB%E4%BD%BF%E7%94%A8"><span class="nav-number">2.0.3.</span> <span class="nav-text">按键是否被使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8Ftips%EF%BC%9A"><span class="nav-number">2.0.4.</span> <span class="nav-text">小tips：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let-%E5%92%8C-set"><span class="nav-number">3.</span> <span class="nav-text">let 和 set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%EF%BC%88git%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">插件管理（git）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="G.dab"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">G.dab</p>
+  <div class="site-description" itemprop="description">空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      my friends
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://zephyrheather.github.io/" title="https:&#x2F;&#x2F;zephyrheather.github.io" rel="noopener" target="_blank">Zephyr's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ck-killer.github.io/blog" title="https:&#x2F;&#x2F;ck-killer.github.io&#x2F;blog" rel="noopener" target="_blank">CK'Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://sober7135.github.io/" title="https:&#x2F;&#x2F;sober7135.github.io" rel="noopener" target="_blank">Sober's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bad-goods.github.io/" title="https:&#x2F;&#x2F;bad-goods.github.io" rel="noopener" target="_blank">Bad-Good's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+      <div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=5276811&auto=1&height=66"></iframe>
+        </iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">G.dab</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fas fa-universal-access"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

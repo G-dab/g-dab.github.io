@@ -162,6 +162,290 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-polyjuice-potion-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-polyjuice-potion-1/" class="post-title-link" itemprop="url">oh-my-zsh - Polyjuice Potion -1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-16 00:56:00" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-19 15:35:11" itemprop="dateModified" datetime="2022-03-19T15:35:11+08:00">2022-03-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>说在前面。。。</p>
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><blockquote>
+<p>shell是一种用C写的程序，之所以称为shell（壳），是因为它就像罩在内核外的壳，用来处理用户通过键盘输入的命令，与内核操作系统进行交互。它又被称为终端，命令行</p>
+</blockquote>
+<blockquote>
+<p>shell 的种类有很多，windows  有powershell,cmd,  linux有 bash, zsh</p>
+</blockquote>
+<p>查看当前系统有哪些shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure>
+<p>查看当前使用的shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="zsh-和-oh-my-zsh"><a href="#zsh-和-oh-my-zsh" class="headerlink" title="zsh 和 oh-my-zsh"></a>zsh 和 oh-my-zsh</h2><h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><blockquote>
+<p>可以兼容 bash，并且提供了很多高效的改进。它是Linux里最庞大的一种shell，它有84个内部命令，也提供了更为强大的功能</p>
+</blockquote>
+<h4 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh my zsh"></a>oh my zsh</h4><p>wiki <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki">https://github.com/ohmyzsh/ohmyzsh/wiki</a></p>
+<p>主页 <a target="_blank" rel="noopener" href="https://ohmyz.sh/">https://ohmyz.sh/</a></p>
+<p>github <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
+<blockquote>
+<p>Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout…</p>
+<h1 id="“Oh-My-ZSH-”"><a href="#“Oh-My-ZSH-”" class="headerlink" title="“Oh My ZSH!”"></a>“Oh My ZSH!”</h1></blockquote>
+<h1 id="安装和配置zsh-oh-my-zsh"><a href="#安装和配置zsh-oh-my-zsh" class="headerlink" title="安装和配置zsh + oh-my-zsh"></a>安装和配置zsh + oh-my-zsh</h1><p>官方文档 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki">https://github.com/ohmyzsh/ohmyzsh/wiki</a></p>
+<p>要安装oh my zsh 首先需要安装 zsh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install zsh</span><br></pre></td></tr></table></figure>
+
+<p>使用chsh命令 切换shell 为zsh （-s选项只修改当前用户的shell）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh   </span><br></pre></td></tr></table></figure>
+
+<p>记住要重启（或者ctrl+d 退出bash登录，再重新登陆）</p>
+<p>第一次启动会让你选择是否创建配置文件.zshrc</p>
+<p>不用管，反正之后用on-my-zsh的配置</p>
+<p><strong>安装git</strong></p>
+<p><strong>安装oh-my-zsh</strong>（选一种）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
+
+<p>打开配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p><strong>更改主题</strong></p>
+<p>官方Theme全介绍 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">&quot;你想要的主题&quot;</span></span><br></pre></td></tr></table></figure>
+<p>更新配置：（或再启动zsh）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>家目录下的~/.oh-my-zsh/plugins存放oh-my-zsh的自带主题</p>
+<blockquote>
+<p>theme设置为random后每次登录就会更新（也即重新启动配置.zshrc）</p>
+<p>tips:  使用source ~/.zshrc来切换随机主题</p>
+</blockquote>
+<p><strong>oh-my-zsh更新</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，当oh-my-zsh有更新时，都会给你提示。如果希望让oh-my-zsh自动更新，在~/.zshrc 中添加下面这句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISABLE_UPDATE_PROMPT=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="插件选择"><a href="#插件选择" class="headerlink" title="插件选择"></a>插件选择</h1><p>浅尝几个小插件，光是它们就能完全颠覆你的命令输入方式</p>
+<h3 id="语法高亮插件"><a href="#语法高亮插件" class="headerlink" title="语法高亮插件"></a><strong>语法高亮插件</strong></h3><p>1、下载zsh-syntax-highlighting插件</p>
+<blockquote>
+<p>用git ssh协议感觉下载的比https快（其实都很慢）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins</span><br><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
+
+<p>2、在.zshrc中增加配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>3、读取配置及时生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动补全插件"><a href="#自动补全插件" class="headerlink" title="自动补全插件"></a>自动补全插件</h3><p>1、下载zsh-autosuggestions插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-autosuggestions <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>2、在.zshrc中增加配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">		zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>3、读取配置及时生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速输入sudo"><a href="#快速输入sudo" class="headerlink" title="快速输入sudo"></a>快速输入sudo</h3><p>如果使用Bash，在<code>~/.bashrc</code>中加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind &#x27;&quot;\e\e&quot;:&quot;\C-asudo \C-e&quot;&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>如果使用Zsh，在<code>~/.zshrc</code>中加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bindkey -s &#x27;\e\e&#x27; &#x27;\C-asudo \C-e&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>让配置文件生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>生效后，只需要连续按两下ESC键，即可快速将sudo添加到命令最前端。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-polyjuice-potion-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="G.dab">
+      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ggdab~~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/16/mo-yao-ke/linux/notes/oh-my-zsh-polyjuice-potion-2/" class="post-title-link" itemprop="url">oh-my-zsh - Polyjuice Potion -2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-16 00:56:00" itemprop="dateCreated datePublished" datetime="2022-01-16T00:56:00+08:00">2022-01-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-19 15:35:23" itemprop="dateModified" datetime="2022-03-19T15:35:23+08:00">2022-03-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://ohmyz.sh/#install">oh-my-zsh官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">oh-my-zsh github</a></p>
+<p>这里摘录几个安装oh-my-zsh时我遇到问题和解决方案</p>
+<blockquote>
+<ol>
+<li><p>使用git clone github上实在对网络要求高，而且很 慢 很 慢。。。</p>
+</li>
+<li><p>每次配置只对单个用户有作用</p>
+</li>
+<li><p>插件安装一条一条命令输实在boring</p>
+<p>。。。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="github网速问题"><a href="#github网速问题" class="headerlink" title="github网速问题"></a>github网速问题</h2><p>安装方式 （curl 为例）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>简单说一下官网上安装命令的含义：把github仓库里的install.sh脚本执行，（其中我们在下载中屏幕上看到的内容就是install.sh上的内容，定向到屏幕上了）</p>
+</blockquote>
+<p>现在若直接在oh-my-zsh 的github上下载好zip文件，之后就再不需要联网了:-）,当然如果github连不上，可以到gitee上找<a target="_blank" rel="noopener" href="https://gitee.com/mirrors/oh-my-zsh">镜像站</a></p>
+<blockquote>
+<p>大家可以打开install.sh看看里面都干了什么：</p>
+<ol>
+<li>检测有没有装git, $SHELL是不是zsh，设置显示的logo, 颜色 </li>
+<li>各种变量的配置</li>
+<li> 在家目录下创建.oh-my-zsh文件夹作为git仓库，把配置文件clone到里面</li>
+<li>把各种配置写入你的.zshrc</li>
+</ol>
+</blockquote>
+<p>有了zip文件，</p>
+<ol>
+<li><p>把解压得到的master分支下文件夹重命名为.oh-my-zsh并放到家目录下</p>
+</li>
+<li><p>把.oh-my-zsh/templates/zshrc.zsh-template这个文件复制到家目录下兵重命名为新的.zshrc配置文件（若原有.zshrc配置文件可以备份）</p>
+</li>
+</ol>
+<p>参考 <a target="_blank" rel="noopener" href="https://gitee.com/mirrors/oh-my-zsh#manual-installation">https://gitee.com/mirrors/oh-my-zsh#manual-installation</a></p>
+<h2 id="编写shell脚本实现“流水线”"><a href="#编写shell脚本实现“流水线”" class="headerlink" title="编写shell脚本实现“流水线”"></a>编写shell脚本实现“流水线”</h2><p>第一次配置oh-my-zsh会感觉很新奇，但之后可不能再像之前一样一步一步的配置了，所以写一个sh脚本实现自动化配置是很好的选择</p>
+<h2 id="问题集合"><a href="#问题集合" class="headerlink" title="问题集合"></a>问题集合</h2><h5 id="问题1：-权限问题"><a href="#问题1：-权限问题" class="headerlink" title="问题1： 权限问题"></a>问题1： 权限问题</h5><p>普通用户安装oh-my-zsh，千万别用 sudo 执行，不然它就把.zshrc放/root下了</p>
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2022/01/13/dui-jiao-xiang/harry-potter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -931,177 +1215,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://g-dab.github.io/2021/12/05/mo-yao-ke/mc-record/mc-outline/mc-server-build/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="G.dab">
-      <meta itemprop="description" content="空虚是好现象，那预示着新层次意识、新的见识、新的体验的到来">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ggdab~~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/05/mo-yao-ke/mc-record/mc-outline/mc-server-build/" class="post-title-link" itemprop="url">Server-build</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-12-05 13:16:23" itemprop="dateCreated datePublished" datetime="2021-12-05T13:16:23+08:00">2021-12-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-19 14:20:03" itemprop="dateModified" datetime="2021-12-19T14:20:03+08:00">2021-12-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Minecraft/" itemprop="url" rel="index"><span itemprop="name">Minecraft</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Minecraft/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Minecraft"><a href="#Minecraft" class="headerlink" title="Minecraft"></a>Minecraft</h1><p>其实，本来Minecraft中mine 和 craft 分别是“采矿”和“制作”的意思，后来传入中国时人们把mine译为“我的”，慢慢的官方名字也就是我的世界了</p>
-<p>Minecraft 中文wiki <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki">https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki</a></p>
-<h2 id="mc版本：Java版和基岩版"><a href="#mc版本：Java版和基岩版" class="headerlink" title="mc版本：Java版和基岩版"></a>mc版本：Java版和基岩版</h2><p>java版：用Java编写</p>
-<p>基岩版：用C++编写</p>
-<p>基岩版是最初的携带版，可以跨设备上使用；Java 版只支持电脑平台 <img src=/images/mcwin.jpg width=20% align="right" > </p>
-<p>在MOD方面，Java版拥有官方的datapacks 和Frge、LiteLoader、Fabric等Mod API，Mod多样性比基岩版丰富得多。想用模组，就选择Java吧</p>
-<p>不过基岩版用C++编写，运行的性能会比Java好</p>
-<p>基岩版只支持Windows，对macOs 和 linux 不友好</p>
-<h1 id="Java-Server-开服指导"><a href="#Java-Server-开服指导" class="headerlink" title="Java Server 开服指导"></a>Java Server 开服指导</h1><p>官方指南 <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server">https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server</a></p>
-<blockquote>
-<p>这里使用Java版本进行开服是因为官方发布的开服软件里Java版已经很成熟，而基岩版开服软件还只是处于alpha版本<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Bedrock_Dedicated_Server">https://minecraft.fandom.com/wiki/Bedrock_Dedicated_Server</a> </p>
-</blockquote>
-<blockquote>
-<p>mc服务器总介 <a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Server">https://minecraft.fandom.com/wiki/Server</a></p>
-</blockquote>
-<p>Warning：想在自己电脑上开服的小盆友千万要小心，不然很可能会使自己的电脑被攻击</p>
-<p>先来介绍一下爪洼(Java) 语言</p>
-<h2 id="Java小简介"><a href="#Java小简介" class="headerlink" title="Java小简介"></a>Java小简介</h2><h3 id="Java，jdk-jre，jvm"><a href="#Java，jdk-jre，jvm" class="headerlink" title="Java，jdk,  jre，jvm"></a>Java，jdk,  jre，jvm</h3><p>鸣谢列表：<a target="_blank" rel="noopener" href="https://blog.csdn.net/java_2017_csdn/article/details/84333532">https://blog.csdn.net/java_2017_csdn/article/details/84333532</a></p>
-<p>​                    <a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_33921105/article/details/117513645">https://blog.csdn.net/sinat_33921105/article/details/117513645</a></p>
-<p> <a target="_blank" rel="noopener" href="https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html">https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html</a></p>
-<p><strong>SDK</strong>(Software Development Kit)    中文意思是“软件开发工具包”</p>
-<p>也就是把辅助开发某一类软件的相关文档、范例和工具SDK是一系列文件的组合写成一个包，它为软件的开发提供一个平台(它为软件开发使用各种API提供便利)。</p>
-<p><strong>JDK</strong>(Java Development Kit)     Java开发工具包，也就是Java的一种SDK</p>
-<p>这是Sun Microsystems针对Java开发员的产品。自从Java推出以来，JDK就是Java SDK的代名词了，如果要开发Java就必须有个JDK，所以Java和JDK其实是几乎等同的，那么之后谈及的每个Java版本其实就等价于一个JDK版本</p>
-<p>Java的版本（表格）（代号很有意思）</p>
-<p><strong>JRE</strong>(Java Runtime Enviroment)    Java的运行环境（里面就含有JVM）,安装JDK的时候包含JRE，这样写完程序就能用JRE来运行试试了，其中安装JRE是一般会有两个JRE，一个用来运行JDK里的工具（这些工具也是用Java写的），另一个给我们用来执行程序</p>
-<p><strong>JVM（Java Virtual Machine）</strong>java 虚拟机</p>
-<blockquote>
-<p>provides a portable execution environment for Java-based applications</p>
-</blockquote>
-<p>遵循着Write once, run anywhere宗旨，它帮助Java程序能在任何操作系统上运行，也起到优化Java程序的内存管理的作用</p>
-<p>不过它和虚拟机不同，它不创建虚拟操作系统，我感觉和docker的容器更像</p>
-<p><strong>执行Java的方式</strong></p>
-<ol>
-<li><p>Java 类加载器 Java class loader：用于加载Java程序的各种各样的类文件</p>
-</li>
-<li><p>Java 执行引擎 execution engine： 加载完类后用于对类的执行</p>
-</li>
-</ol>
-<p><strong>OpenJDK 与 OracleJDK</strong></p>
-<p>去官网转转:         <a target="_blank" rel="noopener" href="http://openjdk.java.net/">OpenJDK</a>        <a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/">OracleJDK </a></p>
-<p>Java由SUN公司(Sun Microsystems）发明之后，在2006年开源，此时的JDK即为<strong>OpenJDK</strong></p>
-<p>几乎现有的所有JDK都派生自OpenJDK（IBM J9，Azul Zulu，Azul Zing和Oracle JDK）</p>
-<p>2009年Oracle收购SUN公司后，也成为JDK的一个维护方，他推出的就是<strong>OracleJDK</strong>。所以OpenJDK是开源的，Oracle JDK是官方不开源的</p>
-<hr>
-<p>了解了这些，下面就来介绍Java版服务器的搭建</p>
-<h1 id="服务器的安装与配置"><a href="#服务器的安装与配置" class="headerlink" title="服务器的安装与配置"></a>服务器的安装与配置</h1><ol>
-<li>在官网安装了Java后（我使用的是Oracle Java）</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-<p>先检查一下Java是不是最新版本</p>
-<ol start="2">
-<li><p>下载开服<a target="_blank" rel="noopener" href="https://www.minecraft.net/zh-hans/download/server">核心 </a>(click here) (这是一个jar归档文件，以zip格式搭建，聚合了开服所需的所有的java类和数据)</p>
-<p>把核心放在要搭建服务器的文件夹里（用于存放所有的配置和世界文件），打开终端进入这个文件夹</p>
-</li>
-<li><p>开启服务器的命令是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar minecraft_server.jar --nogui</span><br></pre></td></tr></table></figure>
-
-<p>–nogui ：就是no gui（图形界面）（但似乎加上它仍然会跳出图形界面）</p>
-</li>
-<li><p>此时服务器应该会立刻关闭，会有提示</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[13:47:19] [main/ERROR]: Failed to load properties from file: server.properties</span><br><span class="line">[13:47:19] [main/WARN]: Failed to load eula.txt</span><br><span class="line">[13:47:19] [main/INFO]: You need to agree to the EULA <span class="keyword">in</span> order to run the server. Go to eula.txt <span class="keyword">for</span> more info.</span><br></pre></td></tr></table></figure>
-
-<p>在文件夹里会多出eula.txt 打开并改成eula=true</p>
-<blockquote>
-<p>eula是终端用户许可协议（End User Licence Agreement），改为true也就是同意他的软件许可</p>
-</blockquote>
-<p>elua.txt里就有mojang公司的用户协议</p>
-<p>   此时再运行服务器就可以正常进行了</p>
-<p>   不过对<em>Minecraft</em> 服务器来说最重要的是运行内存，所以加上-Xmx选项可以指定运行内存限制， 一般-Xmx4G就很绰绰有余了</p>
-<p>通过</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar server.jar -<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-
-<p>可以查看更多的开服选项</p>
-</li>
-<li><p>那么现在如果想以自己的电脑作为服务端，让其他人能连到自己创建的世界里 </p>
-<p>你可能需要<strong>server.property</strong>里的<strong>online-mode</strong>改为false，否则只有经过身份验证的用户才能加入，而一般大多数人只是用离线模式登录</p>
-<p>打开自己的本地启动器来进入正在运行的服务器世界里，只需在-多人游戏-服务器地址中用localhost就可</p>
-<p>但如果其他主机想连进来，就需要你有一个公网ip了</p>
-<p>不过如果是局域网联机就不需要公网ip 你可以用<code>ipconfig</code>（windows）命令查看当前主机ip，然后其他主机要连接服务器需要输入的服务器地址就是 服务器ip：25565(默认开放的是25565端口，开放的端口在服务器配置文件server.property可以找到server-port)</p>
-<blockquote>
-<p> 不过直接在自己的主机上运行服务器毕竟不太好，很可能会其他进程产生冲突，文件系统的储存也不独立，使用docker是一个更好一点 的选项，把mc服务器和自己的主机也分离开。</p>
-</blockquote>
-<blockquote>
-<p>编写一个脚本来自动启动mc不失为一个方便的选项  （官方tutorial上都有详细指导）</p>
-</blockquote>
-<hr>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1168,7 +1285,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1179,7 +1296,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1209,10 +1326,10 @@
       </div>
 
       <div id="music163player">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1842927461&auto=1&height=32"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=5276811&auto=1&height=66"></iframe>
         </iframe>
       </div>
-      
+
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
