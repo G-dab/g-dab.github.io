@@ -1,0 +1,16 @@
+<header class="header">
+  <a href="/" class="header_author_name">
+    <p> {{ .Site.Params.author }} </p>
+  </a>
+  <nav>
+    <ul class="header_links">
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/file/CV_en.pdf">CV</a></li>
+    </ul>
+  </nav>
+</header>
+
+{{ if .Params.katex }}
+  {{ partial "katex.html" . }}
+{{ end }}

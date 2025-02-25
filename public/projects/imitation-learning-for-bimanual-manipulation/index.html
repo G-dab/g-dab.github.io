@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imitation Learning for Bimanual Manipulation | Projects</title>
+  
+  
+    
+    
+    
+    <link rel="stylesheet" href="https://example.org/css/combined_project.css">
+
+</head>
+
+<body>
+  
+  
+    <header class="header">
+  <a href="https://example.org/" class="header_author_name">
+    <p> Chenhao Wu </p>
+  </a>
+  <nav>
+    <ul class="header_links">
+        <li><a href="https://example.org/projects/">Projects</a></li>
+        <li><a href="https://example.org/publications/">Publications</a></li>
+        <li><a href="https://example.org/file/CV_en.pdf">CV</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+    
+<img src="longpic.png" alt="Long Image" class="project-long-image">
+<article class="project-container">
+  <h1 class="project-title">Imitation Learning for Bimanual Manipulation</h1>
+  <div class="project-author-container">
+    
+      
+      
+        <p class="project-author">Chenhao Wu
+           
+        </p>
+      
+    
+  </div>
+  <div class="project-content">
+    <h2 id="abstract">Abstract</h2>
+<p>This is a project I worked on during my internship at the JAKA Intelligent Perception Department from September 20th to December 20th, 2024.
+The main purpose of the project was to implement fine-grained operations for the JAKA dual-arm robot based on the Action Chunking with Transformers(ACT) code framework.</p>
+<h2 id="action-chunking-with-transformersact">Action Chunking with Transformers(ACT)</h2>
+<ul>
+<li><a href="https://mobile-aloha.github.io/">https://mobile-aloha.github.io/</a></li>
+<li><a href="https://github.com/tonyzhaozh/act">https://github.com/tonyzhaozh/act</a></li>
+</ul>
+<p>ACT (Action Chunking with Transformers) algorithm is based on the concept of <strong>imitation learning</strong>, and is designed to address high-precision robotic manipulation tasks.
+existing imitation learning algorithms perform poorly on fine-grained tasks that require high-frequency control and closed-loop feedback, as <strong>compounding errors</strong> and <strong>non-Markovian behavior</strong> can lead to catastrophic failure.</p>
+<p>The main innovation of ACT is using action trunking and temporal ensembling to improve the performance of imitation learning algorithms on fine-grained manipulation tasks.
+<strong>Action chunking</strong> groups multiple actions into a single chunk, effectively reducing the task horizon and mitigating error accumulation, and <strong>temporal ensembling</strong> is used to smooth the policy output.
+Furthermore, the ACT policy is trained as a conditional variational autoencoder(CVAE), which allows it to generate diverse and temporally consistent actions.</p>
+<center>
+<img src=pic1.png width=60%>
+</center>
+<h2 id="hardware-jaka-dual-arm">Hardware: JAKA Dual-arm</h2>
+<p><strong>JAKA K1</strong> is the hardware platform that we use for bimanual manipulations. The robot contians two <strong>7-DOF single arms</strong>,
+we have also installed cameras at the end of each single arm to furher enchance the algorithm.</p>
+<center>
+<img src=pic2.png height=200>
+<img src=pic3.png height=200>
+</center>
+<p>Python SDK of the JAKA dual-arm robot is used to control the robot.
+It allows for the acquisition of the DH matrix and enables fast forward and inverse kinematic analysis.</p>
+<h2 id="software-jaka-act">Software: JAKA-ACT</h2>
+<h3 id="dataset-acquisition">Dataset Acquisition</h3>
+<p>Imitation learning requires dataset that is collected from human experts.
+Here we collected the dataset using the <strong>Pico VR device</strong> or <strong>sensor gloves</strong>.
+The dataset contains the timesteps, joint angles, joint velocities, images, etc. And they are stored in the HDF5 format.</p>
+<center>
+<img src=pic4.png height=200>
+<img src=pic5.png height=200>
+</center>
+<h3 id="imitation-learning-model">Imitation Learning Model</h3>
+<p>The entire imitation learning framework still employs the ACT framework introduced by Stanford University.
+This framework was originally designed for a six-degree-of-freedom robotic arm, and both the arm&rsquo;s configuration and the end-effector differ from our hardware setup.
+Therefore, We modified the model to adapt it to our hardware platform.</p>
+<h3 id="simulation-and-deployment">Simulation and Deployment</h3>
+<p>The imitation learning model is deployment on virtual environments before deploying it on the real robot.
+Here we created different virtual environments using <strong>MuJoCo</strong>.</p>
+<center>
+<img src=pic6.png height=200>
+<img src=pic7.png height=200>
+</center>
+<p>Datasets required for training in virtual environments are relatively easy to obtain. This is because, for tasks such as grasping or insertion, the positions of the target objects are known. Tasks can be completed simply by programming the specified paths based on the target positions.</p>
+<p>There are different evaluation metrics for whether a task is completed.
+We need to set different reward functions for each tasks.</p>
+<div class="video-wrapper" style="text-align: center;">
+    <video
+    controls
+    src="video1.mp4"
+    
+    autoplay
+    style="max-width:30%; height: auto; display: inline-block;"
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="video1.mp4">link to the video</a> instead.
+        </p>
+    </video>
+</div>
+
+
+<p>The final training results for grasping tasks are shown below.</p>
+<div class="video-wrapper" style="text-align: center;">
+    <video
+    controls
+    src="video2.mp4"
+    
+    autoplay
+    style="max-width:50%; height: auto; display: inline-block;"
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="video2.mp4">link to the video</a> instead.
+        </p>
+    </video>
+</div>
+
+
+<p>In real environment, The final training results for grasping tasks are shown below.
+It can be observed that directly transferring training strategies from virtual environments to real robots still faces significant challenges, resulting in low success rates.
+And this is not only related to the parameter settings in the model but also largely depends on the quality of the training dataset.</p>
+<div class="video-wrapper" style="text-align: center;">
+    <video
+    controls
+    src="video3.mp4"
+    
+    autoplay
+    style="max-width:50%; height: auto; display: inline-block;"
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="video3.mp4">link to the video</a> instead.
+        </p>
+    </video>
+</div>
+
+
+
+  </div>
+</article>
+
+</body>
+</html>
