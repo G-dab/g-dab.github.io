@@ -1,18 +1,17 @@
-{{ $longImagePath := .Params.longImage }}
-<img src="{{ $longImagePath }}" alt="Long Image" class="project-long-image">
-<article class="project-container">
+<div class="container">
+  {{ with .Params.longImage }}
+  <img src="{{ . }}" alt="Long Image" class="project-long-image">
+  {{ end }}
   <h1 class="project-title">{{ .Title }}</h1>
   <div class="project-author-container">
     {{ with .Params.author }}
       {{ $len := len . }}
       {{ range $index, $author := . }}
-        <p class="project-author">{{ $author }}
-          {{ if ne (add $index 1) $len }},{{ end }} <!-- 在非最后一个作者后添加逗号 -->
-        </p>
+        <p class="project-author">{{ $author }}{{ if ne (add $index 1) $len }},{{ end }}</p>
       {{ end }}
     {{ end }}
   </div>
   <div class="project-content">
     {{ .Content }}
   </div>
-</article>
+</div>

@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ or .Title .Site.Title }}{{ if ne .Kind "home" }} | {{ .CurrentSection.Title }}{{ end }}</title>
-  <!-- set up the style sheet -->
+  <!-- global stylesheet -->
+  {{ $globalStyle := resources.Get "css/global.css" | toCSS | minify }}
+  <link rel="stylesheet" href="{{ $globalStyle.RelPermalink }}">
+  <!-- page-specific stylesheet -->
   {{ block "style" . }}{{ end }}
 </head>
 

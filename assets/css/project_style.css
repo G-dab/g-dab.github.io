@@ -1,47 +1,87 @@
-@font-face {
-    font-family: 'D-DIN-PRO-600-SemiBold';
-    src: url('/fonts/D-DIN-PRO-600-SemiBold.otf') format('truetype');
-}
-@font-face {
-    font-family: 'RobotoSlab-Regular';
-    src: url('/fonts/RobotoSlab-Regular.ttf') format('truetype');
-}
-
-.project-container {
-    padding: 1% 10%;
-}
+/* ===== Project Detail Page ===== */
 
 .project-long-image {
     width: 100%;
-    /* max-width: 1000px; */
     height: auto;
-    border-radius: 2px;
+    border-radius: 4px;
+    margin-bottom: 1.5em;
 }
 
 .project-title {
+    font-family: 'RobotoSlab-Regular', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
     text-align: center;
-    font-family: 'D-DIN-PRO-600-SemiBold', sans-serif;
-    font-size: 30px;
-    color: #333;
+    margin-bottom: 0.3em;
 }
 
 .project-author-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 0 12px;
+    margin-bottom: 1.5em;
 }
+
 .project-author {
-    font-size: 1em;
-    color: #333;
-    margin-bottom: 1em;
-    text-align: center;
-    display: inline-block;
-    margin: 0 10px;
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
 }
+
 .project-content {
-    font-size: 1em;
-    font-family: RobotoSlab-Regular, sans-serif;
-    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.project-content p {
     margin-bottom: 1em;
-    display: inline-block;
-    margin: 0 10px;
+    font-size: 0.95rem;
+}
+
+.project-content h2 {
+    font-size: 1.2rem;
+    margin: 1.5em 0 0.5em;
+    color: #333;
+}
+
+.project-content h3 {
+    font-size: 1.05rem;
+    margin: 1.2em 0 0.4em;
+    color: #333;
+}
+
+.project-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 1em auto;
+}
+
+.project-content ul, .project-content ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+.project-content li {
+    margin-bottom: 0.3em;
+    font-size: 0.95rem;
+}
+
+.project-content center {
+    margin: 1em 0;
+}
+
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 1.3rem;
+    }
+    .project-content {
+        font-size: 0.9rem;
+    }
+    .project-content p {
+        font-size: 0.9rem;
+    }
 }

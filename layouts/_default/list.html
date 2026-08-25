@@ -1,13 +1,13 @@
 {{ define "style"}}
-{{ $style := resources.Get "css/header_style.css" | toCSS | minify }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ $headerStyle := resources.Get "css/header_style.css" | toCSS | minify }}
+<link rel="stylesheet" href="{{ $headerStyle.RelPermalink }}">
 {{ end }}
 
 {{ define "page" }}
 {{ partial "header.html" . }}
-<article class="container">
-
-  <h1>{{ .Title }}</h1>
+<div class="container">
+  <h1 class="home-section-title" style="margin-top:0;">{{ .Title }}</h1>
+  {{ .Content }}
 
   {{ range .Sections }}
   <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
@@ -20,14 +20,15 @@
   </ul>
   {{ end }}
 
-  <h2>Other</h2>
+  {{ with .RegularPages }}
+  <h2>Pages</h2>
   <ul>
-    {{ range .RegularPages }}
+    {{ range . }}
       <li>
         <a href="{{ .RelPermalink }}">{{ or .Title .RelPermalink }}</a>
       </li>
     {{ end }}
   </ul>
-  
-</article>
+  {{ end }}
+</div>
 {{ end }}

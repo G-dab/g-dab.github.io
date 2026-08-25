@@ -1,33 +1,62 @@
 {{ define "style"}}
     {{ $headerStyle := resources.Get "css/header_style.css" | toCSS | minify }}
-    {{ $profileStyle := resources.Get "css/profile_style.css" | toCSS | minify }}
-    {{ $listProjectStyle := resources.Get "css/list_project_style.css" | toCSS | minify }}
-    {{ $styles := slice $headerStyle $profileStyle $listProjectStyle  | resources.Concat "css/combined_home.css" }}
+    {{ $homeStyle := resources.Get "css/home_style.css" | toCSS | minify }}
+    {{ $styles := slice $headerStyle $homeStyle | resources.Concat "css/combined_home.css" }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 {{ end }}
 
 {{ define "page" }}
 {{ partial "header.html" . }}
-<div class="profile-container">
-    <div class="profile-intro">
-        <h2>Personal Introduction</h2>
-        <p>{{ .Content }}</p>
-        {{ partial "btn_download_CV.html" . }}
-    </div>
-    <div class="profile-image">
-        <img src="/images/profile_photo1.jpg" alt="profile-image">
-    </div>
-</div>
-<h2 class="home-heading">Projects</h2>
-<div class="post-container">
-    {{ range where .Site.RegularPages "Type" "projects" }}
-        <div class="post-item" data-description="{{.Params.description}}">
-        <a href="{{ .RelPermalink }}" class="post-link">
-            <img src="{{ .RelPermalink }}{{ .Params.showImage }}" alt="Default Image" />
-            <h2>{{ .Title }}</h2>
-        </a>
+<div class="container">
+    <!-- Name & Subtitle -->
+    <h1 class="home-name">{{ .Site.Params.author }}<span class="home-name-cn">{{ .Site.Params.author_cn }}</span></h1>
+    <p class="home-subtitle">{{ .Site.Params.subtitle }}</p>
+    <p class="home-email"><a href="mailto:g.rotrix@sjtu.edu.cn">g.rotrix@sjtu.edu.cn</a></p>
+
+    <!-- Profile Intro: text + avatar -->
+    <div class="home-profile">
+        <div class="home-profile-text">
+            {{ .Content }}
         </div>
-    {{ end }}
+        <div class="home-profile-avatar">
+            <img src="/images/profile_photo1.jpg" alt="profile photo">
+        </div>
+    </div>
+
+    <!-- Social Buttons -->
+    <div class="home-social">
+        <a href="/file/CV_en.pdf" class="home-social-btn" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg>
+            CV
+        </a>
+        <a href="https://github.com/g-dab" class="home-social-btn" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+        </a>
+        <a href="https://scholar.google.com/citations?user=9fxFs-QAAAAJ&hl=zh-CN&oi=sra" class="home-social-btn" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+            Scholar
+        </a>
+        <a href="https://ieeexplore.ieee.org/author/135340371972306" class="home-social-btn" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            IEEE
+        </a>
+    </div>
+
+    <!-- Projects Section -->
+    <h2 class="home-section-title">Projects</h2>
+    <div class="home-project-list">
+        {{ range where .Site.RegularPages "Type" "projects" }}
+        <a href="{{ .RelPermalink }}" class="home-project-item">
+            <div class="home-project-thumb">
+                <img src="{{ .RelPermalink }}{{ .Params.showImage }}" alt="{{ .Title }}">
+            </div>
+            <div class="home-project-info">
+                <div class="home-project-title">{{ .Title }}</div>
+                <div class="home-project-desc">{{ .Params.description }}</div>
+            </div>
+        </a>
+        {{ end }}
+    </div>
 </div>
 {{ end }}
-

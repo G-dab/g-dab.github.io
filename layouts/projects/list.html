@@ -1,20 +1,26 @@
 {{ define "style"}}
   {{ $headerStyle := resources.Get "css/header_style.css" | toCSS | minify }}
-  {{ $listProjectStyle := resources.Get "css/list_project_style.css" | toCSS | minify }}
-  {{ $style := slice $headerStyle $listProjectStyle | resources.Concat "css/combined_list_project.css" }}
+  {{ $homeStyle := resources.Get "css/home_style.css" | toCSS | minify }}
+  {{ $style := slice $headerStyle $homeStyle | resources.Concat "css/combined_projects_list.css" }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 {{ end }}
 
 {{ define "page" }}
   {{ partial "header.html" . }}
-  <div class="post-container">
-    {{ range .Pages }}
-      <div class="post-item" data-description="{{.Params.description}}">
-        <a href="{{ .RelPermalink }}" class="post-link">
-          <img src="{{ .RelPermalink }}{{ .Params.showImage }}" alt="Default Image" />
-          <h2>{{ .Title }}</h2>
-        </a>
-      </div>
-    {{ end }}
+  <div class="container">
+    <h1 class="home-section-title" style="margin-top:0;">{{ .Title }}</h1>
+    <div class="home-project-list">
+      {{ range .Pages }}
+      <a href="{{ .RelPermalink }}" class="home-project-item">
+        <div class="home-project-thumb">
+          <img src="{{ .RelPermalink }}{{ .Params.showImage }}" alt="{{ .Title }}">
+        </div>
+        <div class="home-project-info">
+          <div class="home-project-title">{{ .Title }}</div>
+          <div class="home-project-desc">{{ .Params.description }}</div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
   </div>
 {{ end }}

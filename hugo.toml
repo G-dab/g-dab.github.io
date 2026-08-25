@@ -1,13 +1,12 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://g-dab.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site?'
+title = 'Chenhao Wu'
 enableInlineShortcodes = true
 
 contentdir = "content"
 layoutdir = "layouts"
 publishdir = "public"
 builddrafts = false
-baseurl = "http://yoursite.example.com/"
 canonifyurls = true
 
 [taxonomies]
@@ -22,6 +21,8 @@ canonifyurls = true
       unsafe = true
 
 [params]
-  description = "G.dab's Awesome Hugo Site"
+  description = "Chenhao Wu's Personal Homepage"
   author = "Chenhao Wu"
+  author_cn = "吴晨昊"
+  subtitle = "M.S. Student in Robotics · Shanghai Jiao Tong University"
 
