@@ -1,8 +1,8 @@
 {{ define "style"}}
     {{ $headerStyle := resources.Get "css/header_style.css" | toCSS | minify }}
     {{ $projectStyle := resources.Get "css/project_style.css" | toCSS | minify }}
-    {{ $styles := slice $headerStyle $projectStyle | resources.Concat "css/combined_project.css" }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    {{ $styles := slice $headerStyle $projectStyle | resources.Concat "css/combined_project.css" | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ end }}
 
 {{ define "page" }}

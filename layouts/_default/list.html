@@ -1,6 +1,6 @@
 {{ define "style"}}
-{{ $headerStyle := resources.Get "css/header_style.css" | toCSS | minify }}
-<link rel="stylesheet" href="{{ $headerStyle.RelPermalink }}">
+{{ $headerStyle := resources.Get "css/header_style.css" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $headerStyle.RelPermalink }}" integrity="{{ $headerStyle.Data.Integrity }}">
 {{ end }}
 
 {{ define "page" }}

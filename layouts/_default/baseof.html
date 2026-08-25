@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ or .Title .Site.Title }}{{ if ne .Kind "home" }} | {{ .CurrentSection.Title }}{{ end }}</title>
   <!-- global stylesheet -->
-  {{ $globalStyle := resources.Get "css/global.css" | toCSS | minify }}
-  <link rel="stylesheet" href="{{ $globalStyle.RelPermalink }}">
+  {{ $globalStyle := resources.Get "css/global.css" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $globalStyle.RelPermalink }}" integrity="{{ $globalStyle.Data.Integrity }}">
   <!-- page-specific stylesheet -->
   {{ block "style" . }}{{ end }}
 </head>
