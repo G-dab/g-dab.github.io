@@ -1,8 +1,8 @@
 ---
 title: Home Page
 ---
-Hi there! I am a senior at the School of [**Mechanical Engineering, Shanghai Jiao Tong University**](https://me.sjtu.edu.cn/en/), advised by Prof. [**Genliang Chen**](https://me.sjtu.edu.cn/en/FullTimeTeacher/chengenliang.html).
+I am a M.S. student in Mechanical Engineering at [**Shanghai Jiao Tong University**](https://me.sjtu.edu.cn/en/), advised by Prof. [**Genliang Chen**](https://me.sjtu.edu.cn/en/FullTimeTeacher/chengenliang.html). My research focuses on soft robotics, multi-modal sensor fusion, and dexterous end-effectors for robotic manipulation.
 
-I'm a member of the Qian Xuesen Class in Mechanical Engineering, and I have done many interesting small projects during my undergraduate years, Including Wear Testing Machine, Bionic Frog and Humanoid Arm.
+I work across the full stack of robot development — from mechanical design and hardware prototyping (SolidWorks, 3D printing, STM32) to algorithm implementation and real-robot deployment (ROS2, Isaac Sim, MuJoCo, imitation learning & reinforcement learning). As an undergraduate in the Qian Xuesen Class, I completed projects including a bionic frog robot, a 7-DOF humanoid arm, and a digital twin-based in-situ wear testing system.
 
-From September 20, 2024, to December 20, 2024, I worked at the [**Intelligent Perception Platform Department of JAKA Robotics**](https://www.jakarobotics.com/), development of algorithms for dual-arm robot collaboration.
+I have gained industry experience at [**JAKA Robotics**](https://www.jakarobotics.com/) (dual-arm manipulation, VR teleoperation, and ALOHA-based imitation learning) and [**Agibot**](https://www.agibot.com/) (real-time text-to-motion generation, humanoid jumping locomotion, and vision-based obstacle crossing), bridging mechanical design with embodied intelligence.

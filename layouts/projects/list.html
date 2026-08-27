@@ -16,7 +16,10 @@
           <img src="{{ .RelPermalink }}{{ .Params.showImage }}" alt="{{ .Title }}">
         </div>
         <div class="home-project-info">
-          <div class="home-project-title">{{ .Title }}</div>
+          <div class="home-project-header">
+            <div class="home-project-title">{{ .Title }}</div>
+            <div class="home-project-date">{{ .Date.Format "2006.01" }}</div>
+          </div>
           <div class="home-project-desc">{{ .Params.description }}</div>
         </div>
       </a>

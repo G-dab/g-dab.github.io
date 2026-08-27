@@ -1,4 +1,4 @@
-{{ define "style"}}
+﻿{{ define "style"}}
     {{ $headerStyle := resources.Get "css/header_style.css" | toCSS | minify }}
     {{ $homeStyle := resources.Get "css/home_style.css" | toCSS | minify }}
     {{ $styles := slice $headerStyle $homeStyle | resources.Concat "css/combined_home.css" | fingerprint }}
@@ -13,13 +13,13 @@
     <p class="home-subtitle">{{ .Site.Params.subtitle }}</p>
     <p class="home-email"><a href="mailto:g.rotrix@sjtu.edu.cn">g.rotrix@sjtu.edu.cn</a></p>
 
-    <!-- Profile Intro: text + avatar -->
+    <!-- Profile Intro: text wrapping around avatar -->
     <div class="home-profile">
-        <div class="home-profile-text">
-            {{ .Content }}
-        </div>
         <div class="home-profile-avatar">
             <img src="/images/profile_photo1.jpg" alt="profile photo">
+        </div>
+        <div class="home-profile-text">
+            {{ .Content }}
         </div>
     </div>
 
@@ -43,6 +43,56 @@
         </a>
     </div>
 
+    <!-- Timeline: Education & Internship -->
+    <div class="home-timeline">
+        <div class="timeline-column">
+            <div class="timeline-column-title">Education</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2020.09 鈥?2024.06</div>
+                    <div class="timeline-entry-title">Shanghai Jiao Tong University</div>
+                    <div class="timeline-entry-subtitle">B.Eng. in Mechanical Engineering 路 Qian Xuesen Class</div>
+                    <div class="timeline-desc">Graduated with honors. Completed projects including Wear Testing Machine, Bionic Frog, and Humanoid Arm.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.09 鈥?Present</div>
+                    <div class="timeline-entry-title">Shanghai Jiao Tong University</div>
+                    <div class="timeline-entry-subtitle">M.S. in Mechanical Engineering 路 Robotics</div>
+                    <div class="timeline-desc">Advised by Prof. Genliang Chen. Research focus on robotics, soft robots, and sensor fusion.</div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-column">
+            <div class="timeline-column-title">Internship</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.06 鈥?2024.09</div>
+                    <div class="timeline-entry-title">JAKA Robotics 路 Mechanical Division</div>
+                    <div class="timeline-entry-subtitle">Mechanical Design Intern</div>
+                    <div class="timeline-desc">Designed a 10-DOF three-fingered dexterous hand (7 active + 3 passive) with multiple grasping modes. Designed a 7-DOF humanoid dual-arm based on SRS configuration, completed SW modeling, 3D printing verification, and forward/inverse kinematics analysis in MATLAB.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.09 鈥?2024.12</div>
+                    <div class="timeline-entry-title">JAKA Robotics 路 Intelligent Perception Platform</div>
+                    <div class="timeline-entry-subtitle">Embodied AI Development Intern</div>
+                    <div class="timeline-desc">Built a low-latency (&lt;5ms) VR teleoperation system using Pico headset and JAKA K1 dual-arm servo mode. Ported the ALOHA imitation learning framework to JAKA K1, completing data collection, training, and deployment for autonomous pick-and-sort tasks.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025.07 鈥?2025.09</div>
+                    <div class="timeline-entry-title">Shanghai Media Group (SMG) 路 Zhenshi Media</div>
+                    <div class="timeline-entry-subtitle">Documentary Director Assistant</div>
+                    <div class="timeline-desc">Participated in documentary production covering Zhenghong Street Secretary daily life, Sinan Mansion premiere screening, and student street interviews at Xiehe Education Pudong Campus. Involved in both on-location shooting and post-production editing.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026.03 鈥?2026.08</div>
+                    <div class="timeline-entry-title">Agibot 路 XLab Fermion Lab</div>
+                    <div class="timeline-entry-subtitle">Motion Control Algorithm Intern</div>
+                    <div class="timeline-desc">Built a real-time text-to-motion system for Lingxi X2 humanoid robot (CLIP + VAE + latent diffusion high-level, sonic motion tracking low-level), enabling dancing and jumping via text control. Trained A3 robot jumping skills with Mimic+AMP, and implemented depth-camera-based obstacle crossing for X2.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Projects Section -->
     <h2 class="home-section-title">Projects</h2>
     <div class="home-project-list">
@@ -52,7 +102,10 @@
                 <img src="{{ .RelPermalink }}{{ .Params.showImage }}" alt="{{ .Title }}">
             </div>
             <div class="home-project-info">
-                <div class="home-project-title">{{ .Title }}</div>
+                <div class="home-project-header">
+                    <div class="home-project-title">{{ .Title }}</div>
+                    <div class="home-project-date">{{ .Date.Format "2006.01" }}</div>
+                </div>
                 <div class="home-project-desc">{{ .Params.description }}</div>
             </div>
         </a>

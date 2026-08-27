@@ -2,14 +2,16 @@
 title: "Publications"
 ---
 
-`sumto()` function: \\(\sum_1^i i\\)
+### 2026
 
-Can be done recursively: `sumto(5) = 5 + sumto(4)`
+**Modeling and Optimization of a Variable Stiffness Compliant Gripper With the Flexible Parallelogram Mechanism**
+Siyue Yao, Hao Yuan, **Chenhao Wu**, Yanjun Wang, Hao Wang, Genliang Chen
+*IEEE/ASME Transactions on Mechatronics*, 2026 (Early Access)
+[[IEEE Xplore]](https://ieeexplore.ieee.org/document/11559152/) [[Project]](/projects/variable-stiffness-compliant-gripper/)
 
-Recursive function rules:
+### 2025
 
-1. have a base case (a case to stop the recursion)
-2. the recursive function must progress toward the base case (otherwise it will recurse infinitely)
-3. trust the induction
-4. Make sure that it won't make too many recursive calls
-5. Never run the same arguments of the recursive function twice. Caching may help
+**EBUG: Elastic-beam Buckling and Undulating Generation for Multi-modal Robot Locomotion in Environmental Exploration**
+Siyue Yao, Hao Li, Yuliang Lu, **Chenhao Wu**, Mark R. Cutkosky, Genliang Chen
+*IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*, 2025
+[[Project]](/projects/EBUG/)

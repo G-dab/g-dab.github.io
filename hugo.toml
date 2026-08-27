@@ -7,7 +7,7 @@ contentdir = "content"
 layoutdir = "layouts"
 publishdir = "public"
 builddrafts = false
-canonifyurls = true
+canonifyurls = false
 
 [taxonomies]
   category = "categories"
